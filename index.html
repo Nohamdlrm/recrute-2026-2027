@@ -1,0 +1,1699 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><meta name="theme-color" content="#153564"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Campus Rosa Parks"><meta name="description" content="Portail d'informations scolaires Campus Rosa Parks"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" type="image/png" href="icon-192.png"></head><body>
+<title>Campus Rosa Parks — Nouveau design | Campus Rosa Parks — Portail scolaire</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Concept : portail d'établissement. Mobile d'abord, barre inférieure ; barre latérale au-delà de 900px.
+   Palette imposée par le cahier des charges, police Inter, pastels par catégorie. */
+:root{
+  --brand:#173B70; --btn:#173B70; --accent:#2563EB; --focus:#2563EB;
+  --bg:#F8FAFC; --card:#FFFFFF; --soft:#F1F5F9; --fg:#111827; --muted:#64748B;
+  --line:#E2E8F0; --line-strong:#CBD5E1; --brand-text:#173B70;
+  --ok:#16A34A; --ok-bg:#DCFCE7; --warn:#F59E0B; --warn-bg:#FEF3C7; --warn-fg:#92400E; --err:#DC2626; --err-bg:#FEE2E2;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 2px 10px rgba(16,24,40,.05);
+  --blue-bg:#E3EDFF; --blue-fg:#1D4ED8; --green-bg:#DDF4E6; --green-fg:#15803D;
+  --purple-bg:#EDE6FF; --purple-fg:#6D28D9; --orange-bg:#FFE8D9; --orange-fg:#C2410C;
+  --pink-bg:#FFE0E8; --pink-fg:#BE185D; --teal-bg:#D8F3F0; --teal-fg:#0F766E;
+  --amber-bg:#FFF0C8; --amber-fg:#92400E; --slate-bg:#E9EEF5; --slate-fg:#334155;
+  --fs:1;
+  --glass:rgba(255,255,255,.55); --glass-strong:rgba(255,255,255,.74); --glass-modal:rgba(255,255,255,.86); --glass-line:rgba(255,255,255,.8);
+  --glass-shadow:0 10px 30px rgba(23,59,112,.16),inset 0 1px 0 rgba(255,255,255,.9);
+  --glass-soft:0 0 0 1px rgba(23,59,112,.07),0 2px 12px rgba(23,59,112,.07),inset 0 1px 0 rgba(255,255,255,.9);
+  --glow1:rgba(37,99,235,.20); --glow2:rgba(139,92,246,.16); --glow3:rgba(20,184,166,.16);
+  --spec:rgba(255,255,255,.95); --spec-dim:rgba(255,255,255,.32);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --btn:#2F5FB3; --accent:#7DA8FF; --focus:#9DBBFF; --bg:#0B1220; --card:#111A2E; --soft:#16223A; --fg:#E5E9F2; --muted:#9AA7BD;
+  --line:#22304A; --line-strong:#33466A; --brand-text:#A9C3F7;
+  --ok:#4ADE80; --ok-bg:#12301F; --warn:#FBBF24; --warn-bg:#3A2D10; --warn-fg:#F5C45C; --err:#F87171; --err-bg:#3B1A1A; --shadow:none;
+  --blue-bg:#172A4D; --blue-fg:#9DBBFF; --green-bg:#12301F; --green-fg:#7DDBA3; --purple-bg:#2A2050; --purple-fg:#BBA6FF;
+  --orange-bg:#3A2415; --orange-fg:#FFB27A; --pink-bg:#3A1A28; --pink-fg:#FF9EBB; --teal-bg:#10302E; --teal-fg:#6FD9CF;
+  --amber-bg:#3A2D10; --amber-fg:#F5C45C; --slate-bg:#1B2536; --slate-fg:#A9B6CC;
+  --glass:rgba(22,34,58,.55); --glass-strong:rgba(22,34,58,.72); --glass-modal:rgba(17,26,46,.86); --glass-line:rgba(255,255,255,.14);
+  --glass-shadow:0 10px 30px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);
+  --glass-soft:0 0 0 1px rgba(255,255,255,.08),0 2px 12px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08);
+  --glow1:rgba(59,110,230,.34); --glow2:rgba(139,92,246,.24); --glow3:rgba(20,184,166,.2); --spec:rgba(255,255,255,.5); --spec-dim:rgba(255,255,255,.09); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --btn:#2F5FB3; --accent:#7DA8FF; --focus:#9DBBFF; --bg:#0B1220; --card:#111A2E; --soft:#16223A; --fg:#E5E9F2; --muted:#9AA7BD;
+  --line:#22304A; --line-strong:#33466A; --brand-text:#A9C3F7;
+  --ok:#4ADE80; --ok-bg:#12301F; --warn:#FBBF24; --warn-bg:#3A2D10; --warn-fg:#F5C45C; --err:#F87171; --err-bg:#3B1A1A; --shadow:none;
+  --blue-bg:#172A4D; --blue-fg:#9DBBFF; --green-bg:#12301F; --green-fg:#7DDBA3; --purple-bg:#2A2050; --purple-fg:#BBA6FF;
+  --orange-bg:#3A2415; --orange-fg:#FFB27A; --pink-bg:#3A1A28; --pink-fg:#FF9EBB; --teal-bg:#10302E; --teal-fg:#6FD9CF;
+  --amber-bg:#3A2D10; --amber-fg:#F5C45C; --slate-bg:#1B2536; --slate-fg:#A9B6CC;
+  --glass:rgba(22,34,58,.55); --glass-strong:rgba(22,34,58,.72); --glass-modal:rgba(17,26,46,.86); --glass-line:rgba(255,255,255,.14);
+  --glass-shadow:0 10px 30px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);
+  --glass-soft:0 0 0 1px rgba(255,255,255,.08),0 2px 12px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.08);
+  --glow1:rgba(59,110,230,.34); --glow2:rgba(139,92,246,.24); --glow3:rgba(20,184,166,.2); --spec:rgba(255,255,255,.5); --spec-dim:rgba(255,255,255,.09); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{height:100%;font-size:calc(16px * var(--fs));-webkit-text-size-adjust:100%}
+body{min-height:100%;font-family:var(--font,Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);font-size:1rem;line-height:1.5;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.01em}
+button,input,select,textarea{font-family:inherit;font-size:1rem;color:inherit}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:8px}
+h1:focus{outline:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ic{flex:none;display:block}
+.num{font-variant-numeric:tabular-nums}
+
+/* tons */
+.t-blue{--tb:var(--blue-bg);--tf:var(--blue-fg)}.t-green{--tb:var(--green-bg);--tf:var(--green-fg)}
+.t-purple{--tb:var(--purple-bg);--tf:var(--purple-fg)}.t-orange{--tb:var(--orange-bg);--tf:var(--orange-fg)}
+.t-pink{--tb:var(--pink-bg);--tf:var(--pink-fg)}.t-teal{--tb:var(--teal-bg);--tf:var(--teal-fg)}
+.t-amber{--tb:var(--amber-bg);--tf:var(--amber-fg)}.t-slate{--tb:var(--slate-bg);--tf:var(--slate-fg)}
+.t-red{--tb:var(--err-bg);--tf:var(--err)}
+
+/* structure */
+.shell{display:flex;min-height:100%}
+.main{flex:1;min-width:0;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:14px 104px}
+.view{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.view>*{animation:rise .28s ease both}
+.view>*:nth-child(2){animation-delay:.03s}.view>*:nth-child(3){animation-delay:.06s}.view>*:nth-child(4){animation-delay:.09s}.view>*:nth-child(n+5){animation-delay:.12s}
+@keyframes rise{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes sh{to{background-position:-200% 0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+html[data-motion="reduce"] *,html[data-motion="reduce"] *::before{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
+
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:2px;background:var(--card);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.tab{flex:1;min-width:0;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;background:none;color:var(--muted);font-size:.6875rem;font-weight:500;line-height:1.2;border-radius:12px;cursor:pointer}
+.tab .w{display:grid;place-items:center;width:48px;height:28px;border-radius:14px;transition:background .18s}
+.tab[aria-current="page"]{color:var(--accent);font-weight:700}
+.tab[aria-current="page"] .w{background:var(--blue-bg)}
+.side{display:none}
+@media (min-width:900px){
+  .tabbar{display:none}
+  .main{padding-block:28px 56px}
+  .side{display:flex;flex-direction:column;gap:4px;width:256px;flex:none;position:sticky;top:0;align-self:flex-start;height:100vh;padding:24px 14px;border-right:1px solid var(--line);background:var(--card)}
+  .side .brand{display:flex;align-items:center;gap:10px;padding:4px 10px 18px;font-weight:700;color:var(--brand-text);line-height:1.15}
+  .side .tab{flex:none;flex-direction:row;justify-content:flex-start;gap:12px;min-height:44px;padding:0 12px;font-size:.9375rem;border-radius:12px}
+  .side .tab .w{width:28px;background:none!important}
+  .side .tab[aria-current="page"]{background:var(--blue-bg)}
+  .side hr{border:0;border-top:1px solid var(--line);margin:10px 4px;width:100%}
+}
+.shell.bare .tabbar,.shell.bare .side{display:none}
+.shell.bare .main{padding-block:0;padding-inline:0;display:flex;flex-direction:column}
+.shell.bare .view{flex:1;width:100%;max-width:none}
+.setup{flex:1;width:100%;max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:18px;padding-block:max(24px,env(safe-area-inset-top,0px)) max(28px,env(safe-area-inset-bottom,0px));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.pv{position:relative;overflow:hidden;border-radius:18px;padding:18px;background:radial-gradient(120px 90px at 15% 20%,var(--glow1),transparent 70%),radial-gradient(140px 100px at 90% 90%,var(--glow2),transparent 70%),linear-gradient(135deg,var(--blue-bg),var(--purple-bg));display:flex;justify-content:center}
+.pvcap{display:flex;gap:6px;align-items:center;padding:8px 10px;border-radius:30px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+.pvcap span{display:grid;place-items:center;width:44px;height:36px;border-radius:18px;color:var(--muted)}
+.pvcap span.on{background:var(--blue-bg);color:var(--accent)}
+html.glass .pvcap{background:var(--glass);border-color:var(--glass-line);-webkit-backdrop-filter:blur(18px) saturate(190%);backdrop-filter:blur(18px) saturate(190%);box-shadow:var(--glass-shadow)}
+html.glass .pvcap span.on{background:var(--glass-strong);box-shadow:inset 0 0 0 1px var(--glass-line)}
+.sample{padding:12px 14px;border-radius:14px;background:var(--soft)}
+.tab>span:last-child{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row.docrow{flex-wrap:wrap;cursor:default}
+.row.docrow .txt{flex:1 1 170px}
+.row.docrow .dact{display:flex;gap:8px;align-items:center;margin-left:auto}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:14px;border:1.5px solid transparent;font-weight:600;cursor:pointer;text-decoration:none;transition:transform .12s,background .15s;text-align:center}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--btn);color:#fff}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-secondary{background:var(--card);border-color:var(--line-strong);color:var(--fg)}
+.btn-ghost{background:none;color:var(--accent);padding:0 12px}
+.btn-danger{background:var(--err);color:#fff}
+.btn-sm{min-height:40px;padding:0 14px;font-size:.875rem;border-radius:12px}
+.btn-block{width:100%}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.iconbtn{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;position:relative;flex:none}
+.iconbtn .dot{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--err);color:#fff;font-size:.6875rem;font-weight:700;display:grid;place-items:center}
+
+/* typo */
+.h1{font-size:1.75rem;font-weight:800;line-height:1.15}
+.h2{font-size:1.1875rem;font-weight:700;line-height:1.25}
+.h3{font-size:1rem;font-weight:600;line-height:1.3}
+.sub{color:var(--muted);font-size:.9375rem}
+.small{font-size:.8125rem;color:var(--muted)}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+
+/* cartes et lignes */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.pad{padding:16px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;width:100%;min-width:0;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);color:inherit;text-decoration:none;cursor:pointer;transition:transform .12s,border-color .15s}
+a.row:hover,button.row:hover{border-color:var(--line-strong)}
+.row:active{transform:scale(.99)}
+.row .txt{flex:1;min-width:0}
+.row .txt b{display:block;font-weight:600}
+.row .txt span{display:block;color:var(--muted);font-size:.875rem;line-height:1.4}
+.row .chev{color:var(--muted)}
+.sq{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--tb);color:var(--tf);flex:none}
+.sq.sm{width:40px;height:40px;border-radius:12px}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:700;letter-spacing:.02em;background:var(--tb,var(--soft));color:var(--tf,var(--muted));white-space:nowrap}
+.badge.ok{background:var(--ok-bg);color:var(--ok)}.badge.warn{background:var(--warn-bg);color:var(--warn-fg)}.badge.err{background:var(--err-bg);color:var(--err)}
+.badge.line{background:none;border:1px solid var(--line-strong);color:var(--muted)}
+.notice{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:var(--warn-bg);color:var(--warn-fg);font-size:.875rem;line-height:1.45}
+.notice.info{background:var(--blue-bg);color:var(--blue-fg)}
+.notice.ok{background:var(--ok-bg);color:var(--ok)}.notice.err{background:var(--err-bg);color:var(--err)}
+.notice b{font-weight:700}
+
+/* en-tête */
+.top{display:flex;align-items:center;gap:12px}
+.top .grow{flex:1;min-width:0}
+.pagehead{display:flex;flex-direction:column;gap:6px}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-left:-8px;padding:0 10px;border:0;background:none;color:var(--accent);font-weight:600;border-radius:12px;cursor:pointer;align-self:flex-start}
+.hello{display:flex;align-items:center;gap:12px}
+.hello .logo{flex:none}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--btn);color:#fff;display:grid;place-items:center;font-weight:700;border:0;cursor:pointer;flex:none}
+
+/* recherche */
+.searchbtn{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:0 16px;border-radius:16px;border:1px solid var(--line);background:var(--soft);color:var(--muted);text-align:left;cursor:pointer}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label,.lbl{font-weight:600;font-size:.9375rem}
+.input,.select,.textarea{width:100%;min-height:48px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line-strong);background:var(--card)}
+.textarea{min-height:140px;resize:vertical;line-height:1.5}
+.input:focus,.select:focus,.textarea:focus{outline:3px solid var(--focus);outline-offset:1px;border-color:var(--accent)}
+.input[aria-invalid="true"],.textarea[aria-invalid="true"],.select[aria-invalid="true"]{border-color:var(--err)}
+.err-msg{color:var(--err);font-size:.875rem;font-weight:500;display:flex;gap:6px;align-items:center}
+.searchfield{position:relative}
+.searchfield .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.searchfield .input{padding-left:44px;background:var(--soft);border-color:var(--line)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* grilles */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:102px;padding:12px 6px;border:0;border-radius:18px;background:var(--tb);color:var(--tf);font-weight:600;font-size:.8125rem;line-height:1.25;text-align:center;cursor:pointer;transition:transform .12s}
+.cat:active{transform:scale(.97)}
+.cat span{color:var(--fg)}
+@media (min-width:560px){.cats{gap:14px}.cat{min-height:116px;font-size:.9375rem}}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
+.chip{flex:none;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line-strong);background:var(--card);font-weight:600;font-size:.875rem;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--btn);border-color:var(--btn);color:#fff}
+.snap{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 8px;margin-inline:-2px}
+.snap>*{scroll-snap-align:start;flex:0 0 min(86%,340px)}
+
+/* actualités */
+.news{display:flex;flex-direction:column;gap:0;padding:0;overflow:hidden;color:inherit;text-decoration:none;cursor:pointer;transition:transform .12s;min-width:0}
+.news:active{transform:scale(.99)}
+.cover{height:104px;background:var(--tb);color:var(--tf);position:relative;display:grid;place-items:center;overflow:hidden}
+.cover::before,.cover::after{content:"";position:absolute;border-radius:50%;background:var(--tf);opacity:.12}
+.cover::before{width:150px;height:150px;left:-30px;top:-60px}.cover::after{width:110px;height:110px;right:-20px;bottom:-50px}
+.news .body{padding:16px;display:flex;flex-direction:column;gap:8px}
+.news .meta{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;color:var(--muted);font-size:.8125rem}
+.news h3{font-size:1.0625rem}
+.news p{color:var(--muted);font-size:.9375rem}
+.more{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:.9375rem}
+.article-body{display:flex;flex-direction:column;gap:14px;font-size:1.0625rem;line-height:1.7;max-width:65ch}
+.article-body h2{font-size:1.25rem;margin-top:8px}
+.article-body ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+
+/* annonces */
+.ann{display:flex;gap:12px;padding:14px 16px;align-items:flex-start}
+.ann .lv{flex:none;width:36px;height:36px;border-radius:12px;display:grid;place-items:center}
+.ann.urgent .lv{background:var(--err-bg);color:var(--err)}.ann.important .lv{background:var(--warn-bg);color:var(--warn-fg)}.ann.info .lv{background:var(--blue-bg);color:var(--blue-fg)}
+
+/* listes de données */
+.kv{margin:0;display:flex;flex-direction:column}
+.kv>div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.kv>div:last-child{border-bottom:0}
+.kv dt{color:var(--muted)}.kv dd{margin:0;font-weight:600;text-align:right}
+.steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--blue-bg);color:var(--blue-fg);font-weight:700;font-size:.875rem;display:grid;place-items:center}
+.ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.date{flex:none;width:56px;height:60px;border-radius:14px;background:var(--tb);color:var(--tf);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.date b{font-size:1.375rem;font-weight:800}.date span{font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.month{font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:4px}
+
+/* interrupteurs et segments */
+.switch{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px;padding:8px 0;cursor:pointer}
+.switch input{position:absolute;opacity:0;width:1px;height:1px}
+.switch .track{flex:none;width:52px;height:32px;border-radius:16px;background:var(--line-strong);position:relative;transition:background .18s}
+.switch .track::after{content:"";position:absolute;left:3px;top:3px;width:26px;height:26px;border-radius:50%;background:#fff;transition:transform .18s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.switch input:checked+.track{background:var(--btn)}
+.switch input:checked+.track::after{transform:translateX(20px)}
+.switch input:focus-visible+.track{outline:3px solid var(--focus);outline-offset:2px}
+.seg{display:flex;gap:4px;padding:4px;border-radius:14px;background:var(--soft)}
+.seg button{flex:1;min-height:40px;border:0;border-radius:10px;background:none;font-weight:600;font-size:.875rem;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--fg);box-shadow:var(--shadow)}
+
+/* accordéon */
+.acc{overflow:hidden}
+.acc>button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:12px 16px;border:0;background:none;text-align:left;font-weight:600;cursor:pointer}
+.acc>button .ic{transition:transform .2s;color:var(--muted)}
+.acc>button[aria-expanded="true"] .ic{transform:rotate(90deg)}
+.acc .ans{padding:0 16px 16px;color:var(--muted)}
+
+/* états */
+.state{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:36px 20px}
+.state .big{width:72px;height:72px;border-radius:24px;display:grid;place-items:center;background:var(--tb);color:var(--tf)}
+.state p{color:var(--muted);max-width:42ch}
+.state .acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+.sk{background:linear-gradient(90deg,var(--soft),var(--line),var(--soft));background-size:200% 100%;animation:sh 1.3s linear infinite;border-radius:10px}
+.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid currentColor;border-right-color:transparent;animation:spin .7s linear infinite}
+
+/* accueil écran bienvenue */
+.welcome{flex:1;width:100%;max-width:460px;margin:0 auto;display:flex;flex-direction:column;padding-block:max(28px,env(safe-area-inset-top,0px)) max(28px,env(safe-area-inset-bottom,0px));padding-inline:max(24px,env(safe-area-inset-left,0px)) max(24px,env(safe-area-inset-right,0px))}
+.welcome .hero{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:6vh}
+.welcome .word{font-size:2.5rem;line-height:1.05;letter-spacing:-.02em;color:var(--fg)}
+.welcome .word .l{font-weight:300;display:block;font-size:2.25rem}
+.welcome .word .b{font-weight:800;display:block;font-size:2.75rem}
+.welcome .rule{width:44px;height:3px;border-radius:2px;background:var(--line-strong);margin:14px auto 10px}
+.welcome .slogan{color:var(--muted);font-size:1.1875rem;max-width:18ch}
+.welcome .waves{flex:1;min-height:150px;position:relative;margin-inline:calc(-1 * max(24px,env(safe-area-inset-left,0px))) calc(-1 * max(24px,env(safe-area-inset-right,0px)))}
+.welcome .waves svg{position:absolute;inset:0;width:100%;height:100%}
+.welcome .cta{display:flex;flex-direction:column;gap:12px;position:relative}
+.welcome .foot{text-align:center;margin-top:10px}
+
+/* modale, toast */
+.scrim{position:fixed;inset:0;z-index:50;background:rgba(15,23,42,.5);display:flex;align-items:flex-end;justify-content:center;padding:max(0px,env(safe-area-inset-top,0px)) env(safe-area-inset-right,0px) 0 env(safe-area-inset-left,0px);animation:fade .18s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal{background:var(--card);width:100%;max-width:520px;max-height:90%;overflow:auto;border-radius:24px 24px 0 0;padding:22px 20px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px;animation:rise .25s ease both}
+@media (min-width:600px){.scrim{align-items:center}.modal{border-radius:24px;padding-bottom:22px}}
+.mact{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(88px + env(safe-area-inset-bottom,0px));z-index:60;max-width:min(92vw,440px);background:#0F172A;color:#fff;padding:12px 18px;border-radius:14px;font-size:.9375rem;box-shadow:0 8px 24px rgba(0,0,0,.25);animation:rise .22s ease both}
+@media (min-width:900px){.toast{bottom:32px}}
+.net{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--warn-bg);color:var(--warn-fg);padding:8px 16px;text-align:center;font-size:.875rem;font-weight:600}
+
+/* tableaux */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9375rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.8125rem}
+.sw i{display:block;height:44px}.sw div{padding:8px 10px}
+.icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px}
+.icons div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.6875rem;color:var(--muted);padding:8px 2px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.divider{border:0;border-top:1px solid var(--line);margin:0}
+
+/* Liquid Glass : actif par défaut sur iOS, réglable dans Paramètres.
+   Le flou n'est posé que sur la navigation et les couches flottantes ; les cartes restent translucides sans flou, pour garder de la fluidité. */
+html.glass .shell{position:relative;isolation:isolate}
+html.glass .shell::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60vmax 48vmax at 6% -4%,var(--glow1),transparent 62%),radial-gradient(50vmax 44vmax at 108% 28%,var(--glow2),transparent 62%),radial-gradient(56vmax 46vmax at 18% 112%,var(--glow3),transparent 62%)}
+html.glass .main{padding-block:14px 124px}
+html.glass .tabbar{left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:6px;border:1px solid var(--glass-line);border-radius:34px;background:var(--glass);-webkit-backdrop-filter:blur(26px) saturate(190%);backdrop-filter:blur(26px) saturate(190%);box-shadow:var(--glass-shadow)}
+html.glass .tab[aria-current="page"] .w{background:var(--glass-strong);box-shadow:inset 0 0 0 1px var(--glass-line),0 2px 10px rgba(23,59,112,.14)}
+html.glass .card,html.glass .row{background:var(--glass-strong);border-color:transparent;border-radius:22px;box-shadow:var(--glass-soft)}
+html.glass .news{border-radius:24px}
+html.glass .cat{border-radius:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+html.glass .searchbtn,html.glass .iconbtn,html.glass .back,html.glass .seg{background:var(--glass);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);box-shadow:var(--glass-soft)}
+html.glass .searchbtn{border-radius:999px}
+html.glass .back{margin-left:0;padding:0 16px 0 10px;border-radius:999px}
+html.glass .chip{background:var(--glass-strong);border-color:var(--glass-line);box-shadow:var(--glass-soft)}
+html.glass .chip[aria-pressed="true"]{background:var(--btn);border-color:var(--btn)}
+html.glass .btn{border-radius:999px}
+html.glass .btn-primary{background:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,0) 55%),var(--btn);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 20px rgba(23,59,112,.28)}
+html.glass .btn-secondary{background:var(--glass-strong);border-color:var(--glass-line);box-shadow:var(--glass-soft)}
+html.glass .input,html.glass .select,html.glass .textarea{background:var(--glass-strong);border-radius:16px}
+html.glass .seg button[aria-pressed="true"]{background:var(--glass-strong);box-shadow:inset 0 0 0 1px var(--glass-line),var(--glass-soft)}
+html.glass .scrim{background:rgba(15,23,42,.28);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+html.glass .modal{background:var(--glass-modal);-webkit-backdrop-filter:blur(34px) saturate(190%);backdrop-filter:blur(34px) saturate(190%);border:1px solid var(--glass-line);border-radius:30px 30px 0 0;box-shadow:var(--glass-shadow)}
+html.glass .toast{bottom:calc(96px + env(safe-area-inset-bottom,0px));background:rgba(15,23,42,.72);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.16);border-radius:999px}
+html.glass .net{background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%)}
+@media (min-width:600px){html.glass .modal{border-radius:30px}}
+@media (min-width:900px){
+  html.glass .main{padding-block:28px 56px}
+  html.glass .toast{bottom:32px}
+  html.glass .side{background:var(--glass);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border-right-color:var(--glass-line)}
+}
+@media (prefers-reduced-transparency:reduce){
+  html.glass{--glass:var(--card);--glass-strong:var(--card);--glass-modal:var(--card);--glass-line:var(--line)}
+  html.glass *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  html.glass{--glass:var(--card);--glass-strong:var(--card);--glass-modal:var(--card)}
+}
+
+/* Liquid Glass v2 : reflets de bord, bulle d'onglet animée, réfraction réelle sur Chromium (Safari iOS : rendu approché) */
+html.glass{-webkit-tap-highlight-color:transparent}
+html.glass .tabbar,html.glass .iconbtn,html.glass .back,html.glass .searchbtn,html.glass .modal,html.glass .toast{border:0}
+html.glass .back,html.glass .searchbtn{position:relative}
+html.glass .tabbar{background:linear-gradient(180deg,var(--spec-dim),transparent 60%),var(--glass);-webkit-backdrop-filter:blur(10px) saturate(190%) brightness(1.06);backdrop-filter:var(--lg-bf-bar,blur(10px) saturate(190%) brightness(1.06));box-shadow:0 12px 36px rgba(23,59,112,.20),0 2px 6px rgba(23,59,112,.10),inset 0 1px 0 var(--spec),inset 0 -1px 0 var(--spec-dim),inset 0 0 22px var(--spec-dim);touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html.glass .tabbar::after,html.glass .iconbtn::after,html.glass .back::after,html.glass .searchbtn::after,html.glass .toast::after,html.glass .bubble::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.25px;pointer-events:none;background:linear-gradient(135deg,var(--spec) 0%,var(--spec-dim) 28%,transparent 48%,transparent 56%,var(--spec-dim) 74%,var(--spec) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+html.glass .iconbtn,html.glass .back,html.glass .searchbtn{background:linear-gradient(180deg,var(--spec-dim),transparent 60%),var(--glass);box-shadow:0 6px 18px rgba(23,59,112,.12),inset 0 1px 0 var(--spec),inset 0 0 12px var(--spec-dim);transition:transform .4s cubic-bezier(.34,1.5,.5,1)}
+html.glass .iconbtn:active,html.glass .back:active,html.glass .searchbtn:active{transform:scale(.94)}
+html.glass .toast{box-shadow:0 10px 30px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.25)}
+html.glass .modal{-webkit-backdrop-filter:blur(18px) saturate(190%) brightness(1.05);backdrop-filter:var(--lg-bf-mod,blur(18px) saturate(190%) brightness(1.05));box-shadow:0 24px 60px rgba(15,23,42,.3),inset 0 1px 0 var(--spec),inset 0 0 26px var(--spec-dim);animation:pop .45s cubic-bezier(.34,1.4,.5,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.bubble{display:none}
+html.glass .tab{position:relative;z-index:1}
+html.glass .tab[aria-current="page"] .w{background:none;box-shadow:none}
+html.glass .bubble{display:block;position:absolute;left:0;top:6px;bottom:6px;width:0;border-radius:30px;z-index:0;pointer-events:none;transform:translateX(var(--bx,0px)) scale(var(--bs,1));transition:transform .5s cubic-bezier(.34,1.45,.5,1),width .5s cubic-bezier(.34,1.45,.5,1),opacity .2s,background .25s,box-shadow .25s;background:linear-gradient(180deg,var(--spec),var(--spec-dim) 45%,transparent),var(--glass-strong);-webkit-backdrop-filter:blur(6px) saturate(200%) brightness(1.1);backdrop-filter:var(--lg-bf-bub,blur(6px) saturate(200%) brightness(1.1));box-shadow:0 4px 14px rgba(23,59,112,.18),inset 0 1px 0 var(--spec),inset 0 -2px 6px var(--spec-dim)}
+html.glass .bubble.nt{transition:none}
+html.glass .bubble.stretch{animation:stretch .5s ease}
+@keyframes stretch{35%{scale:1.16 .88}70%{scale:.97 1.04}100%{scale:1 1}}
+html.glass .tabbar.press .bubble{--bs:1.16;background:linear-gradient(180deg,var(--spec-dim),transparent 60%),rgba(255,255,255,.14);box-shadow:0 10px 26px rgba(23,59,112,.26),inset 0 1px 0 var(--spec),inset 0 0 14px var(--spec-dim)}
+html.glass .tabbar.drag .bubble{transition:width .5s,transform .09s linear}
+@media (prefers-reduced-motion:reduce){html.glass .bubble,html.glass .modal{animation:none!important;transition:none!important}}
+
+
+/* =========================================================
+   CAMPUS ROSA PARKS — REFONTE UI V3
+   Inspirée des maquettes fournies, sans modifier la logique
+   ni le DOM interne de la section « À la une » existante.
+   ========================================================= */
+:root{
+  --brand:#142f5d;--btn:#14366b;--accent:#1459c7;--focus:#2563eb;
+  --bg:#f7f9fd;--card:#ffffff;--soft:#f2f5fa;--fg:#13203d;--muted:#72809a;
+  --line:#edf0f6;--line-strong:#dce3ee;--brand-text:#16376b;
+  --blue-bg:#eaf2ff;--blue-fg:#2162d8;--green-bg:#e5f6ee;--green-fg:#15946a;
+  --purple-bg:#f0eafe;--purple-fg:#7845d9;--orange-bg:#fff0e8;--orange-fg:#f05c37;
+  --pink-bg:#ffebf1;--pink-fg:#e84376;--teal-bg:#e4f6f3;--teal-fg:#0f887f;
+  --amber-bg:#fff3dd;--amber-fg:#ac6c05;--slate-bg:#eff2f8;--slate-fg:#56667e;
+  --shadow:0 3px 18px rgba(17,40,85,.042);--fs:1;
+}
+html{scroll-behavior:smooth}
+body{letter-spacing:-.011em;background:var(--bg)}
+.shell{min-height:100vh}
+.main{padding:26px 20px 110px}
+.view{max-width:760px;gap:23px}
+.h1{font-size:clamp(1.55rem,2.5vw,2rem);font-weight:800;letter-spacing:-.045em;color:var(--fg)}
+.h2{font-size:1.18rem;font-weight:800;letter-spacing:-.035em}
+.h3{font-size:1rem;font-weight:700;letter-spacing:-.018em}
+.sub{color:var(--muted);line-height:1.5}
+.small{color:var(--muted)}
+.card{border-radius:17px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.row{border-radius:16px;box-shadow:var(--shadow);gap:13px;min-height:72px}
+.row:hover{background:color-mix(in srgb,var(--card) 97%,var(--blue-bg));border-color:#cbd9f3;transform:translateY(-1px)}
+.row .txt b{color:var(--fg);font-size:.94rem}
+.row .txt span{font-size:.8rem;margin-top:3px}
+.sq{width:48px;height:48px;border-radius:13px}
+.sq.sm{width:42px;height:42px;border-radius:12px}
+.btn{border-radius:14px;min-height:45px;font-size:.91rem;box-shadow:none}
+.btn-primary{background:linear-gradient(135deg,#204c86,#10305f);color:#fff;box-shadow:0 3px 9px rgba(20,50,102,.10)}
+.btn-primary:hover{filter:brightness(1.12)}
+.btn-secondary{border-color:#cbd5e5;background:white;color:#18335d}
+.btn-ghost{color:var(--accent)}
+.iconbtn{border-radius:14px}
+.input,.select,.textarea{border-radius:13px;background:white}
+.searchbtn{border:0;background:#f0f3f8;border-radius:14px;min-height:46px}
+.searchfield .input{background:#f2f5fa;border:1px solid transparent;min-height:46px;border-radius:14px}
+.pagehead{gap:5px}
+.back{min-height:36px;color:#435774;font-size:.83rem;margin-bottom:5px}
+.chip{min-height:35px;font-weight:600;font-size:.8rem;border:none;background:#f1f4f9;padding:0 15px}
+.chip[aria-pressed="true"]{background:var(--brand);color:#fff}
+.notice{border-radius:13px;font-size:.84rem}
+.demo-inline{font-size:.73rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.section-lead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.section-lead h2{font-size:1.18rem;line-height:1.25;letter-spacing:-.025em}
+.section-lead p{font-size:.84rem;color:var(--muted);margin-top:5px}
+.top-left{display:flex;gap:12px;align-items:center;min-width:0}
+.quick-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.quick-tile{background:var(--tb);min-width:0;border:none;border-radius:16px;padding:17px 11px;display:flex;flex-direction:column;gap:11px;align-items:flex-start;text-align:left;color:var(--tf);cursor:pointer;transition:transform .18s,box-shadow .18s;min-height:112px}
+.quick-tile:hover,.feature-tile:hover,.link-card:hover,.campus-card:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(23,59,112,.10)}
+.quick-tile strong{color:var(--fg);font-size:.84rem;line-height:1.22}
+.quick-tile small{font-size:.7rem;color:var(--muted);line-height:1.3}
+.quick-tile .ic{width:29px;height:29px}
+.welcome-new{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:center;background:#fff;color:#101f3e}
+.welcome-new .wash{position:absolute;pointer-events:none;border-radius:50%;z-index:-1}
+.welcome-new .wash.a{width:390px;height:390px;background:#ffe1d4;top:-215px;left:-130px}
+.welcome-new .wash.b{width:210px;height:210px;background:#eaf1fc;right:-100px;top:19%}
+.welcome-new .wash.c{width:300px;height:300px;background:#ffb5a6;bottom:-160px;left:-128px}
+.welcome-new .wash.d{width:360px;height:250px;background:#142e58;bottom:-155px;right:-140px;transform:rotate(-20deg)}
+.welcome-new .inner{width:100%;max-width:470px;margin:auto;padding:70px 26px 44px;display:flex;flex-direction:column;align-items:center;gap:0}
+.welcome-new .wordmark{display:flex;flex-direction:column;align-items:center;margin-top:16px;line-height:1;letter-spacing:-.055em}
+.welcome-new .wordmark span{font-size:2rem;font-weight:400}
+.welcome-new .wordmark strong{font-size:2.45rem;font-weight:800}
+.welcome-new .headline{font-size:1rem;line-height:1.5;text-align:center;color:#62728d;max-width:280px;margin-top:20px}
+.welcome-new .actions{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:clamp(115px,22vh,210px)}
+.welcome-new .actions .btn{min-height:50px;border-radius:999px}
+.welcome-new .foot{font-size:.78rem;text-align:center;color:#6b7791;margin-top:18px}
+.welcome-new .foot button{background:none;border:0;color:#ed674f;font-weight:750;cursor:pointer}
+.login-new{min-height:100svh;background:linear-gradient(145deg,#f5f8ff,#fff 48%,#fff8f5);display:flex;align-items:center;justify-content:center;padding:30px 20px}
+.login-grid{width:min(1020px,100%);display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.login-promo{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:500px;position:relative;overflow:hidden}
+.login-promo::before{content:"";position:absolute;width:430px;height:430px;left:-200px;bottom:-275px;background:#ffb4a9;border-radius:50%}
+.login-promo::after{content:"";position:absolute;width:350px;height:350px;right:-245px;top:-230px;background:#173762;border-radius:50%}
+.login-promo h2{font-size:2.45rem;letter-spacing:-.04em;line-height:1.04;margin:16px 0}
+.login-promo h2 span{display:block;font-weight:400}
+.login-promo p{font-size:1.1rem;color:#677c9e;max-width:220px}
+.login-box{background:white;border:1px solid #edf0f7;box-shadow:0 20px 60px rgba(18,48,88,.07);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.login-box h1{font-size:1.65rem;letter-spacing:-.04em}
+.login-box .seg{background:#f0f2f8;border-radius:12px}
+.login-box .seg button[aria-pressed="true"]{background:var(--btn);color:#fff}
+.login-box .input{padding:12px 14px}
+.login-box .actions{display:flex;flex-direction:column;gap:10px}
+.login-box .muted-link{font-size:.8rem;border:0;background:none;color:#ed604b;cursor:pointer;font-weight:700}
+.login-box .demo-access{padding:12px;background:#f5f8fd;border:1px solid #e5edfa;border-radius:14px}
+.login-box .demo-access p{font-size:.78rem;color:#60718e}
+.login-box .demo-roles{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.login-box .demo-roles .btn{min-height:32px;font-size:.73rem;padding:5px 11px}
+.login-box label{font-weight:600;font-size:.84rem}
+.login-box .input{min-height:47px}
+.login-box .login-check{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:.78rem}
+.login-box .login-check label{display:flex;gap:6px;align-items:center;font-weight:500}
+.login-box .login-check input{accent-color:#193d76}
+.portal-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.portal-top .hello-copy{font-size:.93rem;color:#61718c}
+.portal-top .hello-title{font-size:1.65rem;line-height:1.19;font-weight:800;letter-spacing:-.043em}
+.portal-top .eyebrow{font-weight:600;font-size:.9rem;color:#556984}
+.portal-top .micro{font-size:.87rem;color:#75839b}
+.portal-top .top-icons{display:flex;gap:8px;align-items:center}
+.feature-tile{border:1px solid var(--line);background:var(--card);border-radius:17px;padding:19px 15px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:158px;text-align:left;color:var(--fg);cursor:pointer;box-shadow:var(--shadow);transition:.18s}
+.feature-tile .tile-art{display:grid;place-items:center;width:52px;height:50px;border-radius:15px;background:var(--tb);color:var(--tf)}
+.feature-tile .tile-art .ic{width:29px;height:29px}
+.feature-tile h3{font-size:.9rem;font-weight:800;margin-bottom:4px}
+.feature-tile p{font-size:.77rem;line-height:1.4;color:#79869e}
+.feature-tile .tile-arrow{margin-left:auto;color:#8fa0b9}
+.portal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.link-card{border:1px solid var(--line);background:var(--card);border-radius:17px;padding:16px;display:flex;align-items:center;gap:13px;min-height:91px;text-align:left;cursor:pointer;box-shadow:var(--shadow);color:var(--fg);transition:.18s}
+.link-card .sq{width:47px;height:47px}
+.link-card .linkcopy{flex:1;min-width:0}
+.link-card b{display:block;font-size:.9rem;line-height:1.25}
+.link-card small{display:block;font-size:.72rem;line-height:1.35;color:var(--muted);margin-top:4px}
+.link-card .chev{color:#9aa6b6}
+.link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.info-filter{display:flex;gap:9px;flex-wrap:wrap}
+.info-filter .chip{min-height:34px}
+.panel-card{border:1px solid var(--line);background:white;border-radius:18px;box-shadow:var(--shadow);padding:19px}
+.school-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(235px,1fr);gap:15px;align-items:stretch}
+.school-hero{display:flex;align-items:center;gap:20px;padding:24px}
+.school-hero .big-icon{width:85px;height:85px;flex:none;border-radius:25px;display:grid;place-items:center;background:#e8f1fe;color:#2464db}
+.school-hero h3{font-size:1.1rem;margin-bottom:8px}
+.school-hero p{color:#7a879e;font-size:.83rem;line-height:1.55}
+.school-hero .btn{min-height:38px;margin-top:15px}
+.school-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.school-tabs .chip{padding:0 18px}
+.campus-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.campus-card{overflow:hidden;border-radius:16px;background:white;border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;text-align:left;color:var(--fg);padding:0;cursor:pointer;transition:.18s}
+.campus-card .campus-art{height:110px;background:linear-gradient(130deg,var(--tb),#fff);color:var(--tf);display:grid;place-items:center;position:relative;overflow:hidden}
+.campus-card .campus-art::before{content:"";position:absolute;width:170px;height:170px;right:-70px;top:-115px;border-radius:50%;border:25px solid currentColor;opacity:.08}
+.campus-card .campus-art .ic{width:48px;height:48px;stroke-width:1.25;position:relative}
+.campus-card .detail{padding:12px 12px 16px;flex:1}
+.campus-card b{font-size:.85rem}
+.campus-card p{font-size:.74rem;line-height:1.4;color:var(--muted);margin-top:4px}
+.pill-count{font-size:.77rem;color:var(--muted)}
+.profile-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;align-items:start}
+.profile-user{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:20px}
+.profile-user .avatar{width:68px;height:68px;font-size:1.4rem}
+.profile-user h2{font-size:1.05rem}
+.profile-user p{font-size:.84rem;color:var(--muted)}
+.profile-links{display:flex;flex-direction:column;gap:8px}
+.profile-links .row{min-height:68px;box-shadow:none}
+.demo-kicker{display:inline-flex;gap:6px;align-items:center;color:#7786a0;font-size:.75rem}
+.doclist-new .row{box-shadow:none;margin-bottom:7px;min-height:68px}
+#dlist .docrow{background:white}
+/* Conserver les cartes et le carrousel « À la une » dans leur version d'origine. */
+.featured-preserved{min-width:0}
+.featured-preserved .news{max-width:100%}
+/* Mobile navigation : quatre onglets comme les maquettes. */
+.shell.bare .desktop-topbar{display:none!important}
+.shell.bare .main{padding:0!important}
+@media(min-width:900px){.view>.portal-top + .searchbtn{display:none}}
+@media(max-width:600px){
+ .portal-grid.home-shortcuts{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+ .home-shortcuts .feature-tile{align-items:center;justify-content:flex-start;min-height:90px;gap:8px;padding:12px 5px;text-align:center;border-radius:14px}
+ .home-shortcuts .feature-tile .tile-art{width:40px;height:40px;border-radius:12px}
+ .home-shortcuts .feature-tile .tile-art .ic{width:24px;height:24px}
+ .home-shortcuts .feature-tile h3{font-size:.63rem;line-height:1.18}
+ .home-shortcuts .feature-tile p{display:none}
+}
+
+.tabbar{background:#fff;gap:4px;box-shadow:0 -4px 18px rgba(20,45,90,.04);padding:5px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));border-top:1px solid #eef2f8}
+.tab{font-size:.68rem;color:#8490a4}
+.tab[aria-current="page"]{color:#1c62d6}
+.tab[aria-current="page"] .w{background:#eaf2ff}
+.desktop-topbar{display:none}
+.side{display:none}
+@media (max-width:899px){
+  html.glass .shell::before{display:none}
+  html.glass .tabbar{left:0;right:0;bottom:0;border-radius:0;background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 -4px 18px rgba(20,45,90,.06);border-top:1px solid #eef2f8;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px))}
+  html.glass .tabbar::after,html.glass .bubble{display:none!important}
+  html.glass .main{padding:22px 18px 105px}
+  html.glass .card,html.glass .row{background:var(--card);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}
+  html.glass .searchbtn{background:var(--soft);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  html.glass .btn{border-radius:14px}
+}
+@media (min-width:900px){
+  .shell:not(.bare){display:grid;grid-template-columns:228px minmax(0,1fr)}
+  .shell:not(.bare) .side{position:sticky;top:0;height:100vh;width:auto;display:flex;background:#fff;border-right:1px solid #e9edf5;padding:0 13px 24px;gap:3px;z-index:10}
+  .side .brand{font-size:.84rem;line-height:1.12;gap:9px;min-height:76px;border-bottom:1px solid #f0f2f8;margin-bottom:12px;padding:18px 6px}
+  .side .tab{min-height:43px;padding:0 11px;border-radius:10px;font-size:.83rem;color:#65718a;font-weight:550;justify-content:flex-start}
+  .side .tab:hover{background:#f5f8ff}
+  .side .tab[aria-current="page"]{color:#1756ba;background:#eaf2ff;font-weight:750}
+  .side .tab .w{width:22px;height:25px}
+  .side .tab .w .ic{width:18px;height:18px}
+  .side .side-bottom{margin-top:auto;padding-top:15px}
+  .main{padding:0 32px 60px!important;min-width:0}
+  .desktop-topbar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #edf0f6;position:sticky;top:0;background:rgba(247,249,253,.96);backdrop-filter:blur(16px);z-index:15;margin-bottom:34px}
+  .desktop-topbar .searchbtn{max-width:385px;min-height:39px;font-size:.78rem;background:#edf1f7;border:0;border-radius:12px}
+  .desktop-topbar .tools{display:flex;align-items:center;gap:14px}
+  .desktop-topbar .tools .avatar{width:37px;height:37px;font-size:.76rem}
+  .desktop-topbar .tools .iconbtn{background:transparent;border:0;box-shadow:none}
+  .desktop-topbar .username{font-size:.75rem;font-weight:800;line-height:1.25}
+  .desktop-topbar .userrole{font-size:.68rem;color:var(--muted)}
+  .view{max-width:1260px;margin:0 auto;gap:25px}
+  .portal-top{margin-bottom:3px}
+  .portal-top .top-icons{display:none}
+  .desktop-notice{border-radius:13px;padding:12px 15px;background:#fff;border:1px solid #edf1f6;color:#60718b;font-size:.8rem}
+  .quick-cards{gap:14px}
+  .feature-tile{min-height:168px}
+  .main>.view>.pagehead{margin-bottom:0}
+  .login-new{margin:-10px 0}
+  .tabbar{display:none}
+}
+@media (min-width:1280px){.shell:not(.bare){grid-template-columns:244px minmax(0,1fr)}.main{padding-inline:40px!important}}
+@media (max-width:1000px){.campus-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.portal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){
+ .main{padding:18px 16px 100px}.view{gap:20px}
+ .h1{font-size:1.66rem}
+ .portal-top .hello-title{font-size:1.43rem}
+ .quick-cards{gap:8px}
+ .quick-tile{align-items:center;justify-content:center;text-align:center;padding:12px 5px;min-height:91px;border-radius:14px;gap:9px}
+ .quick-tile strong{font-size:.7rem}
+ .quick-tile small{display:none}
+ .quick-tile .ic{width:24px;height:24px}
+ .portal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .feature-tile{min-height:135px;padding:14px;gap:8px}
+ .feature-tile .tile-art{width:43px;height:43px}
+ .link-grid{grid-template-columns:1fr;gap:8px}
+ .link-card{min-height:76px;padding:12px}
+ .school-layout{grid-template-columns:1fr}
+ .school-hero{padding:18px;gap:13px}
+ .school-hero .big-icon{width:66px;height:66px}
+ .campus-grid{grid-template-columns:1fr;gap:9px}
+ .campus-card{flex-direction:row;align-items:center;min-height:86px}
+ .campus-card .campus-art{width:74px;height:75px;flex:none;margin:7px;border-radius:12px}
+ .campus-card .campus-art .ic{width:32px;height:32px}
+ .campus-card .detail{padding:10px 12px}
+ .profile-layout{grid-template-columns:1fr}
+ .profile-user{flex-direction:row;align-items:center}
+ .profile-user .avatar{width:53px;height:53px}
+ .login-grid{grid-template-columns:1fr}.login-promo{display:none}.login-new{align-items:flex-start;padding:30px 18px}
+ .login-box{box-shadow:none;border:0;padding:22px 0;background:transparent}
+ .login-box h1{font-size:1.6rem}
+}
+@media (max-width:380px){.quick-tile strong{font-size:.64rem}.portal-grid{gap:9px}.feature-tile{padding:12px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.quick-tile,.feature-tile,.link-card,.campus-card{transition:none}}
+
+
+/* V4 — finitions fidèles aux maquettes, sans toucher aux cartes « À la une ». */
+:root{--bg:#fbfcff;--brand:#153564;--accent:#1b60cb;--line:#e8edf6;--muted:#74819a}
+body{background:var(--bg)}
+@media(max-width:899px){.main{padding-top:30px!important}.view{gap:20px}.pagehead .h1{font-size:1.55rem}.row{min-height:67px}.tabbar{box-shadow:0 -2px 14px #172e5b0d}}
+@media(min-width:900px){.shell:not(.bare){grid-template-columns:216px minmax(0,1fr)}.view{max-width:1300px}.main{padding-left:30px!important;padding-right:30px!important}.desktop-topbar{height:68px}.side .brand{min-height:68px}}
+.welcome-new .inner,.login-new .login-box{isolation:isolate}
+.btn:focus-visible,.tab:focus-visible,.row:focus-visible,.feature-tile:focus-visible{outline:3px solid #3279e8;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+\n
+/* CAMPUS ROSA PARKS — NOUVEAU DESIGN "ATELIER" — 2026 */
+/* Refonte globale ; contenu et logique de « À la une » non modifiés. */
+:root{
+ --brand:#183d48;--btn:#164e59;--accent:#dc714f;--focus:#df805d;
+ --bg:#f6f5ef;--card:#fffefa;--soft:#eaece5;--fg:#183139;--muted:#6f7f7d;
+ --line:#dfe5dd;--line-strong:#b7c9c4;--brand-text:#164e59;
+ --blue-bg:#dfeeea;--blue-fg:#155c64;--green-bg:#e0eee0;--green-fg:#39794d;
+ --purple-bg:#eee5ed;--purple-fg:#7e5077;--orange-bg:#fbe8db;--orange-fg:#bb6747;
+ --pink-bg:#f9e4e1;--pink-fg:#b65c62;--teal-bg:#dbeee9;--teal-fg:#176e65;
+ --shadow:0 9px 32px rgba(20,64,63,.055);
+}
+body{background:#f6f5ef;color:var(--fg);font-family:Inter,"Avenir Next",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.shell{background:transparent}
+.view{gap:28px}
+.h1,.pagehead .h1,.portal-top .hello-title{font-weight:850;letter-spacing:-.055em;color:#183139}
+.pagehead .h1{font-size:clamp(1.9rem,3vw,2.75rem)}
+.pagehead p,.micro,.eyebrow{color:#73837e}
+.eyebrow{text-transform:uppercase;letter-spacing:.17em;font-weight:800;font-size:.68rem}
+.btn,.btn.primary{background:#164e59;color:#fff;border-radius:13px;font-weight:750;box-shadow:none}
+.btn:hover{filter:brightness(1.09)}
+.btn.secondary,.btn.outline{background:#fffefa;color:#164e59;border:1px solid #b9d1ca}
+.card,.row,.link-card,.feature-tile,.campus-card,.quick-tile,.profile-user,.login-box{border:1px solid #e0e7df;background:#fffefa;border-radius:19px;box-shadow:var(--shadow)}
+.row{transition:transform .18s,box-shadow .18s}
+.row:hover,.link-card:hover,.feature-tile:hover,.campus-card:hover{transform:translateY(-2px);box-shadow:0 16px 30px rgba(20,64,63,.10)}
+.chip{background:#e9eee7;color:#46665e;border-radius:999px;border:1px solid transparent}
+.chip[aria-pressed="true"],.chip.active{background:#164e59;color:white}
+.searchbtn{background:#fffefa;border:1px solid #dce5de;border-radius:15px;color:#75857d;box-shadow:none}
+.portal-top{position:relative;padding:28px 28px 24px;border-radius:24px;background:#174d55;color:white;overflow:hidden;min-height:165px;display:flex;align-items:center}
+.portal-top:before{content:"";position:absolute;width:240px;height:240px;right:-55px;top:-155px;border:52px solid #eaa58a;border-radius:50%;opacity:.94;pointer-events:none}
+.portal-top:after{content:"";position:absolute;width:140px;height:140px;right:90px;bottom:-120px;border-radius:50%;background:#8bb7a6;opacity:.65;pointer-events:none}
+.portal-top .eyebrow,.portal-top .micro{color:#cde3db}
+.portal-top .hello-title{font-size:clamp(1.8rem,3vw,2.9rem);color:white;line-height:1.1}
+.portal-top .top-icons{position:relative;z-index:1}
+.portal-top .iconbtn{background:#ffffff22;border:1px solid #ffffff55;color:white}
+.portal-grid.home-shortcuts{gap:14px}
+.home-shortcuts .feature-tile{border-radius:21px;position:relative;overflow:hidden;min-height:170px;align-items:flex-start;justify-content:space-between;padding:22px}
+.home-shortcuts .feature-tile:nth-child(1){background:#dcefe9;border-color:#dcefe9}
+.home-shortcuts .feature-tile:nth-child(2){background:#f9e5d8;border-color:#f9e5d8}
+.home-shortcuts .feature-tile:nth-child(3){background:#eee4ed;border-color:#eee4ed}
+.home-shortcuts .feature-tile:nth-child(4){background:#e7ece2;border-color:#e7ece2}
+.home-shortcuts .feature-tile .tile-art{background:#ffffffa9;width:56px;height:56px;border-radius:17px}
+.home-shortcuts .feature-tile h3{font-size:1.05rem;letter-spacing:-.03em}
+.home-shortcuts .feature-tile p{font-size:.77rem}
+.link-card{background:#fffefa}
+.campus-card .campus-art{background:linear-gradient(135deg,var(--tb),#f9faf5)}
+.campus-card{overflow:hidden}
+.school-hero{background:linear-gradient(125deg,#e1f0e9,#f9f2e7);border-radius:22px}
+.school-hero .big-icon{background:#c8e4db;color:#17505a}
+.profile-user .avatar,.avatar{background:#174d55;color:white}
+.tabbar{background:#fffefa;border-top:1px solid #dfe9df;box-shadow:0 -10px 25px rgba(15,54,49,.06)}
+.tab{color:#718781}
+.tab[aria-current="page"]{color:#164e59}
+.tab[aria-current="page"] .w{background:#dceee8}
+.welcome-new{background:radial-gradient(circle at 10% 88%,#f3b6a4 0 18%,transparent 19%),radial-gradient(circle at 95% 4%,#cde4db 0 19%,transparent 20%),#f6f5ef}
+.welcome .word,.welcome-new h1{color:#174d55}
+.login-new{background:#f6f5ef}
+.login-promo{background:radial-gradient(circle at 10% 80%,#ef9c7d 0 24%,transparent 25%),linear-gradient(135deg,#174d55,#2b6d6e)!important;color:white}
+.login-promo h1,.login-promo p{color:white!important}
+.login-box{border-radius:26px}
+.doclist-new .row,#dlist .docrow{background:#fffefa}
+@media(min-width:900px){
+ .shell:not(.bare){grid-template-columns:252px minmax(0,1fr);gap:0}
+ .shell:not(.bare) .side{background:#174d55;border-right:0;padding:10px 16px 24px}
+ .side .brand{border-bottom:1px solid #ffffff24;color:#fff;font-weight:850;min-height:84px}
+ .side .brand *{color:#fff}
+ .side .tab{color:#c2dbd4;border-radius:13px;min-height:46px;margin:3px 0}
+ .side .tab:hover{background:#ffffff19;color:#fff}
+ .side .tab[aria-current="page"]{background:#f2f5ed;color:#164e59;font-weight:800}
+ .side .tab[aria-current="page"] .w{background:#dceee8}
+ .side .side-bottom{border-top:1px solid #ffffff20}
+ .main{padding:0 38px 60px!important}
+ .desktop-topbar{height:88px;background:#f6f5efeb;border-bottom:1px solid #dce5dd;margin-bottom:32px}
+ .desktop-topbar .searchbtn{background:#fffefa;border:1px solid #e0e7df;border-radius:14px;max-width:470px}
+ .view{max-width:1330px}
+ .portal-top{min-height:210px;padding:35px 42px}
+ .portal-grid.home-shortcuts{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .campus-grid{gap:18px}
+ .campus-card .campus-art{height:145px}
+}
+@media(max-width:899px){
+ .main{padding:19px 17px 108px!important}
+ .portal-top{padding:24px 22px;min-height:158px}
+ .portal-top .hello-title{font-size:1.85rem}
+ .portal-top:before{right:-90px}
+ .portal-grid.home-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .home-shortcuts .feature-tile{min-height:145px;padding:15px;text-align:left;align-items:flex-start;gap:9px;border-radius:19px}
+ .home-shortcuts .feature-tile .tile-art{width:46px;height:46px}
+ .home-shortcuts .feature-tile h3{font-size:.9rem}
+ .home-shortcuts .feature-tile p{display:block;font-size:.7rem}
+ .tabbar{border-radius:20px 20px 0 0;padding-top:9px}
+ .campus-grid{grid-template-columns:1fr}
+}
+@media(max-width:390px){.home-shortcuts .feature-tile p{display:none}}
+/* Aucune règle spécifique à .featured-preserved ni à ses éléments internes. */
+\n</style>
+
+<div class="shell" id="shell">
+  <aside class="side" id="side" aria-label="Navigation principale"></aside>
+  <main class="main" id="main" tabindex="-1">
+    <div id="net" class="net" role="status" hidden>Vous êtes hors connexion. Les contenus déjà chargés restent consultables.</div>
+    <div class="desktop-topbar" id="desktop-topbar"></div>
+    <div class="view" id="view"></div>
+  </main>
+  <nav class="tabbar" id="tabbar" aria-label="Navigation principale"></nav>
+</div>
+<div id="modal-root"></div>
+<div id="toast-root" aria-live="polite" role="status"></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var norm=function(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')};
+
+/* ---------- icônes (trait, 24px) ---------- */
+var ICONS={
+home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',
+info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+news:'<path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M8 9h5M8 13h5"/>',
+grid:'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+user:'<circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/>',
+bell:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>',
+search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+back:'<path d="M15 5l-7 7 7 7"/>',
+chev:'<path d="M9 5l7 7-7 7"/>',
+file:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
+cert:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 15l2 2 4-4"/>',
+cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+building:'<path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6M8 11h.01M12 11h.01M16 11h.01"/>',
+users:'<circle cx="9" cy="8" r="3.5"/><path d="M2 20c.8-3.5 3.5-5 7-5s6.2 1.5 7 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 15c2 .5 3.5 2 4 5"/>',
+mega:'<path d="M3 10v4h4l8 5V5L7 10z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
+pin:'<path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+cal:'<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/>',
+clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+help:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/>',
+heart:'<path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/>',
+leaf:'<path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15z"/><path d="M5 19l8-8"/>',
+bus:'<rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 12h16M8 21v-3M16 21v-3M8 15h.01M16 15h.01"/>',
+food:'<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 2-3 5-3 8h3v10"/>',
+sliders:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
+logout:'<path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/>',
+download:'<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>',
+share:'<circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><path d="M8.2 10.8l6.6-3.6M8.2 13.2l6.6 3.6"/>',
+check:'<path d="M5 12l5 5 9-10"/>',
+alert:'<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/>',
+wifioff:'<path d="M3 3l18 18"/><path d="M5 11a10 10 0 0 1 5-2.5M19 11a10 10 0 0 0-2.5-1.8M8.5 14.5a5 5 0 0 1 3.5-1.3M12 18h.01"/>',
+lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+wrench:'<path d="M14 6a4 4 0 0 0 5 5l-9 9a2.5 2.5 0 0 1-3.5-3.5l9-9z"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',
+x:'<path d="M6 6l12 12M18 6L6 18"/>',
+shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+clip:'<path d="M20 11l-8 8a5 5 0 0 1-7-7l9-9a3.5 3.5 0 0 1 5 5l-9 9a2 2 0 0 1-3-3l8-8"/>',
+bars:'<path d="M6 20V10M12 20V4M18 20v-7"/>',
+book:'<path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/>',
+access:'<circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5l7 1.5 7-1.5M12 10v5l-3 5M12 15l3 5"/>',
+refresh:'<path d="M20 11a8 8 0 0 0-14-4M4 4v4h4M4 13a8 8 0 0 0 14 4M20 20v-4h-4"/>',
+trash:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+server:'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
+eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+list:'<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>'
+};
+function ic(n,size,cls){size=size||22;return '<svg class="ic '+(cls||'')+'" width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+(ICONS[n]||'')+'</svg>'}
+var LOGO='<svg width="__S__" height="__S__" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 8q0-2 2-2h10q14 0 14 16v28H22Q10 50 10 36z" fill="var(--brand-text)"/><path d="M40 24q14 0 14 14v12H44q-4 0-4-6z" fill="var(--blue-fg)" opacity=".45"/></svg>';
+function logo(s){return LOGO.replace(/__S__/g,s)}
+
+/* ---------- données de démonstration ---------- */
+var TODAY=new Date();TODAY.setHours(12,0,0,0);
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+var TODAY_ISO=iso(TODAY);
+function fmtDate(s,o){return new Date(s+'T12:00:00').toLocaleDateString('fr-FR',o||{day:'numeric',month:'long',year:'numeric'})}
+
+var CATS={
+ general:{name:'Informations générales',tone:'blue',icon:'info'},
+ events:{name:'Événements',tone:'purple',icon:'cal'},
+ school:{name:'Vie scolaire',tone:'green',icon:'book'},
+ projects:{name:'Projets',tone:'amber',icon:'wrench'},
+ assoc:{name:'Associations',tone:'pink',icon:'users'},
+ culture:{name:'Culture',tone:'teal',icon:'book'},
+ sport:{name:'Sport',tone:'orange',icon:'heart'},
+ admin:{name:'Administration',tone:'slate',icon:'file'}
+};
+var AUTHOR='Service communication (exemple)';
+var NEWS0=[
+ {id:'bienvenue',title:'Bienvenue sur Campus Rosa Parks',summary:'Une première visite guidée de l’application : actualités, informations, services et vie de l’établissement au même endroit.',cat:'general',date:'2026-09-01',author:AUTHOR,featured:true,status:'published',
+  body:[{t:'p',x:'Campus Rosa Parks rassemble les informations utiles à la vie de l’établissement : actualités, annonces, documents et services.'},{t:'h',x:'Ce que vous pouvez faire'},{t:'ul',x:['Consulter les actualités et les annonces importantes.','Retrouver les horaires, contacts et documents.','Parcourir la vie de campus et les services disponibles.']},{t:'p',x:'Cette version est une démonstration. Les textes, dates et contacts sont des exemples à remplacer par les informations officielles.'}],
+  files:[{n:'Guide de l’application (exemple).pdf',s:'PDF'}],links:[{l:'Voir les services',to:'services'},{l:'Questions fréquentes',to:'faq'}]},
+ {id:'portes-ouvertes',title:'Journée portes ouvertes',summary:'Venez découvrir les formations, rencontrer les équipes et visiter les espaces du campus.',cat:'events',date:'2026-10-08',author:AUTHOR,featured:true,status:'published',
+  body:[{t:'p',x:'La journée portes ouvertes permet aux futurs élèves et à leurs familles de découvrir l’établissement.'},{t:'h',x:'Au programme (exemple)'},{t:'ul',x:['Accueil et présentation des formations.','Visites guidées par des élèves volontaires.','Rencontres avec les équipes pédagogiques.']},{t:'p',x:'Date, horaires et inscriptions seront précisés par l’établissement.'}],
+  files:[],links:[{l:'Calendrier des événements',to:'events'},{l:'Accès et transports',to:'page:acces'}]},
+ {id:'horaires-accueil',title:'Nouveaux horaires d’accueil',summary:'L’accueil adapte ses horaires pour mieux répondre aux demandes. Retrouvez le détail dans les informations pratiques.',cat:'admin',date:'2026-10-05',author:'Administration (exemple)',featured:false,status:'published',
+  body:[{t:'p',x:'Les horaires de l’accueil évoluent. Consultez la page dédiée pour connaître les créneaux en vigueur.'},{t:'p',x:'Les horaires affichés dans cette démonstration sont fictifs.'}],
+  files:[],links:[{l:'Voir les horaires',to:'page:horaires'}]},
+ {id:'associations',title:'Les associations présentent leurs activités',summary:'Clubs et associations ouvrent leurs portes pour accueillir de nouveaux membres.',cat:'assoc',date:'2026-10-02',author:'Vie associative (exemple)',featured:false,status:'published',
+  body:[{t:'p',x:'Chaque association présente ses projets et ses temps de rencontre. Aucune inscription préalable n’est nécessaire pour une première découverte.'}],
+  files:[],links:[{l:'Associations et clubs',to:'page:associations'}]},
+ {id:'jardin-partage',title:'Un jardin partagé sur le campus',summary:'Un projet collectif pour cultiver, apprendre et favoriser la biodiversité.',cat:'projects',date:'2026-09-28',author:'Développement durable (exemple)',featured:true,status:'published',
+  body:[{t:'p',x:'Un jardin partagé est proposé aux volontaires. Il servira de lieu d’apprentissage et de rencontre.'},{t:'ul',x:['Ateliers de plantation.','Compost et gestion des déchets verts.','Observation de la biodiversité.']}],
+  files:[],links:[{l:'Développement durable',to:'page:durable'}]},
+ {id:'semaine-lecture',title:'Semaine de la lecture',summary:'Rencontres, échanges et temps de lecture partagés dans les espaces communs.',cat:'culture',date:'2026-09-25',author:'Culture (exemple)',featured:false,status:'published',
+  body:[{t:'p',x:'Une semaine pour partager ses lectures et découvrir de nouveaux univers. Le programme détaillé sera publié par les organisateurs.'}],files:[],links:[]},
+ {id:'tournoi-volley',title:'Tournoi inter-classes de volley',summary:'Constituez votre équipe et participez à un tournoi convivial ouvert à toutes et tous.',cat:'sport',date:'2026-09-22',author:'Sport (exemple)',featured:false,status:'published',
+  body:[{t:'p',x:'Le tournoi se déroule en équipes mixtes. Les inscriptions et le règlement seront communiqués par le service des sports.'}],files:[],links:[]},
+ {id:'carte-etudiante',title:'Rappel : démarches pour la carte d’étudiant',summary:'Les étapes à suivre pour obtenir ou renouveler votre carte.',cat:'school',date:'2026-09-18',author:'Vie scolaire (exemple)',featured:false,status:'published',
+  body:[{t:'h',x:'Les étapes (modèle à adapter)'},{t:'ul',x:['Préparer une pièce d’identité et une photo conforme.','Déposer la demande auprès du service concerné.','Retirer la carte à la date indiquée.']}],files:[{n:'Formulaire carte (exemple).pdf',s:'PDF'}],links:[{l:'Scolarité',to:'schooling'}]},
+ {id:'attestation',title:'Obtenir une attestation de scolarité',summary:'Comment demander un certificat ou une attestation et dans quels délais.',cat:'admin',date:'2026-09-12',author:'Administration (exemple)',featured:false,status:'published',
+  body:[{t:'p',x:'Les attestations se demandent auprès du service de scolarité. Les délais et modalités sont à préciser par l’établissement.'}],files:[],links:[{l:'Certificats et attestations',to:'page:certificats'}]}
+];
+var ANNS0=[
+ {id:'a1',title:'Informations de rentrée',msg:'Retrouvez ici les informations importantes de votre établissement. Exemple de démonstration.',level:'important',featured:true,start:'2026-09-01',end:'2027-06-30',status:'published'},
+ {id:'a2',title:'Modification des horaires d’accueil',msg:'Les horaires de l’accueil évoluent. Exemple de démonstration.',level:'info',start:'2026-09-01',end:'2027-06-30',status:'published'},
+ {id:'a3',title:'Fermeture exceptionnelle d’un service',msg:'Un service pourra fermer ponctuellement. Exemple de démonstration.',level:'urgent',start:'2026-09-01',end:'2027-06-30',status:'published'},
+ {id:'a4',title:'Journée portes ouvertes',msg:'Découvrez les prochains événements du campus. Exemple de démonstration.',level:'info',start:'2026-09-01',end:'2027-06-30',status:'published'}
+];
+var EVENTS=[
+ {id:'e1',title:'Journée portes ouvertes',date:'2026-11-14',time:'9 h – 16 h',loc:'Campus (lieu à préciser)',desc:'Découverte des formations et visites guidées.',tone:'purple'},
+ {id:'e2',title:'Forum des associations',date:'2026-10-21',time:'12 h – 14 h',loc:'Hall principal',desc:'Rencontre avec les clubs et associations.',tone:'pink'},
+ {id:'e3',title:'Semaine du développement durable',date:'2026-11-03',time:'Toute la semaine',loc:'Plusieurs lieux',desc:'Ateliers, conférences et actions collectives.',tone:'green'},
+ {id:'e4',title:'Réunion d’information sur les inscriptions',date:'2026-12-02',time:'18 h – 19 h',loc:'Salle d’accueil',desc:'Présentation des démarches et réponses aux questions.',tone:'blue'},
+ {id:'e5',title:'Tournoi inter-classes',date:'2026-12-10',time:'13 h – 17 h',loc:'Gymnase',desc:'Compétition conviviale ouverte à tous.',tone:'orange'},
+ {id:'e6',title:'Soirée culture et lecture',date:'2026-12-16',time:'18 h 30',loc:'Espace culturel',desc:'Lectures, musique et échanges.',tone:'teal'}
+];
+var DOCS=[
+ {id:'d1',title:'Règlement intérieur',cat:'Règlement',vis:'public',date:'2026-09-01'},
+ {id:'d2',title:'Guide d’accueil des nouveaux élèves',cat:'Vie de campus',vis:'public',date:'2026-09-01'},
+ {id:'d3',title:'Formulaire d’inscription',cat:'Scolarité',vis:'public',date:'2026-08-25'},
+ {id:'d4',title:'Demande d’attestation de scolarité',cat:'Administratif',vis:'connecté',date:'2026-09-10'},
+ {id:'d5',title:'Calendrier académique',cat:'Scolarité',vis:'public',date:'2026-08-25'},
+ {id:'d6',title:'Charte d’utilisation du numérique',cat:'Règlement',vis:'public',date:'2026-09-02'},
+ {id:'d7',title:'Plan du campus',cat:'Vie de campus',vis:'public',date:'2026-09-01'},
+ {id:'d8',title:'Procédure de signalement d’un problème matériel',cat:'Administratif',vis:'connecté',date:'2026-09-14'},
+ {id:'d9',title:'Informations santé et bien-être',cat:'Santé',vis:'public',date:'2026-09-05'}
+];
+var FAQ=[
+ {c:'Général',q:'À quoi sert Campus Rosa Parks ?',a:'À retrouver au même endroit les actualités, annonces, informations pratiques, documents et services de l’établissement.'},
+ {c:'Général',q:'Les informations affichées sont-elles officielles ?',a:'Pas dans cette version. Tous les contenus sont des exemples de démonstration, à remplacer par les informations de l’établissement.'},
+ {c:'Compte',q:'Dois-je me connecter pour consulter les informations ?',a:'Non. Les informations publiques sont accessibles sans compte. Certains documents et services demandent une connexion.'},
+ {c:'Compte',q:'Comment récupérer mon compte ?',a:'La récupération de compte dépend du système d’authentification de l’établissement. Elle n’est pas disponible dans cette démonstration.'},
+ {c:'Scolarité',q:'Comment demander une attestation de scolarité ?',a:'Consultez la page Certificats et attestations pour connaître la démarche, puis utilisez le formulaire de contact si besoin.'},
+ {c:'Scolarité',q:'Où trouver le calendrier de l’année ?',a:'Dans Scolarité, rubrique Calendrier académique, ou dans la bibliothèque de documents.'},
+ {c:'Services',q:'Comment signaler un problème matériel ?',a:'Connectez-vous, ouvrez Services puis Signalement d’un problème matériel.'},
+ {c:'Services',q:'Qui reçoit mon message de contact ?',a:'Dans une version déployée, le message est transmis à un service sécurisé de l’établissement. Dans cette démonstration, aucun message n’est envoyé.'}
+];
+var SERVICES=[
+ {id:'demarches',title:'Démarches administratives',desc:'Inscriptions, attestations, certificats.',icon:'file',tone:'blue',on:true,min:'visitor',go:'schooling',who:'Tout le monde',steps:['Repérez la démarche dans Scolarité.','Rassemblez les pièces demandées.','Déposez votre demande auprès du service concerné.']},
+ {id:'docs',title:'Documents utiles',desc:'Formulaires, règlements et guides.',icon:'download',tone:'green',on:true,min:'visitor',go:'docs',who:'Tout le monde',steps:['Ouvrez la bibliothèque de documents.','Recherchez ou filtrez par catégorie.','Consultez ou téléchargez le document.']},
+ {id:'renseignements',title:'Demande de renseignements',desc:'Posez une question à un service.',icon:'mail',tone:'purple',on:true,min:'visitor',go:'contact',who:'Tout le monde',steps:['Ouvrez le formulaire.','Indiquez le sujet et la catégorie.','Décrivez votre demande.']},
+ {id:'annuaire',title:'Annuaire des services',desc:'Contacts de l’accueil et des services.',icon:'phone',tone:'orange',on:true,min:'visitor',go:'page:contacts',who:'Tout le monde',steps:['Ouvrez l’annuaire.','Choisissez le service.','Copiez l’adresse ou le numéro.']},
+ {id:'materiel',title:'Signalement d’un problème matériel',desc:'Panne, dégradation, équipement défectueux.',icon:'wrench',tone:'amber',on:true,min:'student',go:'contact',cat:'Problème matériel',who:'Élèves, étudiants, personnel',steps:['Connectez-vous.','Ouvrez le formulaire de signalement.','Indiquez le lieu et décrivez le problème.']},
+ {id:'assistance',title:'Assistance technique',desc:'Aide pour le numérique et les accès.',icon:'help',tone:'teal',on:true,min:'student',go:'contact',cat:'Assistance technique',who:'Élèves, étudiants, personnel',steps:['Connectez-vous.','Décrivez la difficulté rencontrée.','Un service vous répond.']},
+ {id:'faq',title:'Foire aux questions',desc:'Les réponses aux questions courantes.',icon:'help',tone:'pink',on:true,min:'visitor',go:'faq',who:'Tout le monde',steps:['Choisissez une catégorie.','Ouvrez la question.']},
+ {id:'reservation',title:'Réservation de ressources',desc:'Salles et matériel.',icon:'cal',tone:'slate',on:false,min:'student',go:'',who:'—',steps:[]}
+];
+var PH='À renseigner par l’établissement.';
+var PAGES={
+ presentation:{g:'info',title:'Présentation de l’établissement',icon:'building',tone:'blue',intro:'Cette page présente l’établissement. Les textes officiels sont à fournir.',secs:[{h:'Présentation générale',p:PH+' Missions, chiffres clés, composantes.'},{h:'Histoire',p:PH+' Aucune information historique n’a été inventée.'},{h:'Valeurs',p:PH},{h:'Projet éducatif',p:PH},{h:'Organisation',p:PH+' Organigramme, directions, services.'}]},
+ horaires:{g:'info',title:'Horaires',icon:'clock',tone:'purple',intro:'Horaires d’ouverture des services. Les valeurs ci-dessous sont des exemples, modifiables depuis l’administration.',secs:[{h:'Accueil',kv:[['Lundi – vendredi','8 h 30 – 17 h 00'],['Samedi','Fermé']]},{h:'Administration',kv:[['Lundi – jeudi','9 h 00 – 12 h 00 · 14 h 00 – 16 h 30'],['Vendredi','9 h 00 – 12 h 00']]},{h:'Vie scolaire',kv:[['Lundi – vendredi','8 h 00 – 17 h 30']]}]},
+ contacts:{g:'info',title:'Contacts',icon:'phone',tone:'orange',intro:'Annuaire des services. Les coordonnées ci-dessous sont fictives et seront remplacées par les données officielles.',secs:[{h:'Services',contacts:[['Accueil','accueil@example.org','01 00 00 00 01'],['Administration','administration@example.org','01 00 00 00 02'],['Vie scolaire','viescolaire@example.org','01 00 00 00 03'],['Assistance technique','assistance@example.org','01 00 00 00 04']]}],cta:{l:'Écrire à un service',to:'contact'}},
+ acces:{g:'info',title:'Accès et transports',icon:'bus',tone:'green',intro:'Comment venir au campus. Informations à fournir par l’établissement.',secs:[{h:'Adresse',p:PH},{h:'Plan d’accès',p:PH+' Un plan du campus peut être ajouté dans les documents.'},{h:'Transports',p:PH+' Lignes, arrêts, stationnement vélos.'},{h:'Accessibilité',p:PH+' Entrées adaptées, ascenseurs, places réservées.'}],cta:{l:'Voir le plan du campus (document)',to:'docs'}},
+ reglement:{g:'info',title:'Règlement intérieur',icon:'shield',tone:'slate',intro:'Le règlement s’applique à toute la communauté de l’établissement.',secs:[{h:'Consultation et téléchargement',p:'Le règlement est disponible dans la bibliothèque de documents.'}],cta:{l:'Ouvrir les documents',to:'docs'}},
+ inscriptions:{g:'school',title:'Inscriptions',icon:'file',tone:'blue',intro:'Les démarches d’inscription. Parcours type à adapter par l’établissement.',secs:[{h:'Les étapes',steps:['Consulter les conditions d’admission.','Constituer le dossier.','Déposer le dossier dans les délais.','Attendre la confirmation de l’établissement.']},{h:'Pièces habituellement demandées',ul:['Pièce d’identité','Justificatif de domicile','Derniers justificatifs de scolarité']},{h:'Dates importantes',p:PH}]},
+ calendrier:{g:'school',title:'Calendrier académique',icon:'cal',tone:'purple',intro:'Les grandes étapes de l’année. Les dates seront renseignées par l’établissement.',secs:[{h:'Repères de l’année',kv:[['Rentrée','À renseigner'],['Vacances','À renseigner'],['Périodes d’examens','À renseigner'],['Fin d’année','À renseigner']]}],cta:{l:'Télécharger le calendrier (document)',to:'docs'}},
+ examens:{g:'school',title:'Examens',icon:'bars',tone:'orange',intro:'Informations et procédures liées aux examens. Cette section n’affiche pas de notes.',secs:[{h:'Avant l’examen',ul:['Consulter la convocation.','Vérifier les pièces à présenter.','Prévoir le matériel autorisé.']},{h:'Aménagements',p:'Les demandes d’aménagement se font auprès du service concerné. '+PH},{h:'Règlement des examens',p:PH}]},
+ certificats:{g:'school',title:'Certificats et attestations',icon:'cert',tone:'green',intro:'Comment obtenir vos documents officiels.',secs:[{h:'Les étapes',steps:['Identifier le document nécessaire.','Faire la demande auprès du service de scolarité.','Récupérer le document selon les modalités indiquées.']},{h:'Délais',p:PH}],cta:{l:'Poser une question',to:'contact'}},
+ 'reglement-etudes':{g:'school',title:'Règlement des études',icon:'book',tone:'blue',intro:'Les règles applicables aux études.',secs:[{h:'Contenu',p:PH+' Modalités d’assiduité, de contrôle des connaissances, de validation.'}],cta:{l:'Documents associés',to:'docs'}},
+ formations:{g:'school',title:'Formations',icon:'cap',tone:'purple',intro:'L’offre de formation de l’établissement. Aucune filière n’est inventée ici.',secs:[{h:'Voies et filières',p:PH},{h:'Conditions d’admission',p:PH},{h:'Poursuite d’études',p:PH},{h:'Contacts',p:'Pour toute question, utilisez le formulaire de contact.'}],cta:{l:'Poser une question',to:'contact'}},
+ lieux:{g:'campus',title:'Le campus',icon:'building',tone:'orange',intro:'Les espaces de l’établissement.',secs:[{h:'Bâtiments et espaces',p:PH},{h:'Lieux de travail et de vie',p:PH}],cta:{l:'Plan du campus (document)',to:'docs'}},
+ restauration:{g:'campus',title:'Restauration',icon:'food',tone:'pink',intro:'Informations sur la restauration, lorsque le service existe.',secs:[{h:'Horaires et tarifs',p:PH},{h:'Menus',p:PH}]},
+ associations:{g:'campus',title:'Associations et clubs',icon:'users',tone:'blue',intro:'Les associations et activités proposées.',secs:[{h:'Liste des associations',p:PH},{h:'Rejoindre une association',p:PH}]},
+ sante:{g:'campus',title:'Santé et bien-être',icon:'heart',tone:'purple',intro:'Services d’accompagnement. Seules des informations vérifiées doivent être publiées ici.',secs:[{h:'Accompagnement',p:PH},{h:'Prévention',p:PH},{h:'En cas d’urgence',p:'Contactez les services d’urgence au 112 (Europe) ou le 15 (SAMU).'}]},
+ durable:{g:'campus',title:'Développement durable',icon:'leaf',tone:'green',intro:'Les initiatives environnementales de l’établissement.',secs:[{h:'Actions en cours',p:PH},{h:'Comment participer',p:PH}]},
+ accessibilite:{g:'campus',title:'Accessibilité',icon:'access',tone:'teal',intro:'Aménagements et services d’accessibilité.',secs:[{h:'Aménagements des locaux',p:PH},{h:'Accompagnement',p:PH},{h:'Contact référent',p:PH}]}
+};
+var HOMECATS=[
+ {l:'Infos pratiques',i:'info',t:'blue',to:'info'},{l:'Scolarité',i:'file',t:'green',to:'schooling'},{l:'Formations',i:'cap',t:'purple',to:'page:formations'},
+ {l:'Vie de campus',i:'building',t:'orange',to:'campus'},{l:'Services aux élèves',i:'users',t:'pink',to:'services'},{l:'Actualités',i:'mega',t:'teal',to:'news'}
+];
+var NOTIFS0=[
+ {id:'n1',type:'news',title:'Nouvelle actualité',body:'Bienvenue sur Campus Rosa Parks',read:false,to:'article:bienvenue',d:'2026-10-13'},
+ {id:'n2',type:'ann',title:'Nouvelle annonce',body:'Fermeture exceptionnelle d’un service (exemple)',read:false,to:'home',d:'2026-10-12'},
+ {id:'n3',type:'event',title:'Événement à venir',body:'Forum des associations',read:false,to:'events',d:'2026-10-10'},
+ {id:'n4',type:'update',title:'Information mise à jour',body:'Les horaires de l’accueil ont changé',read:true,to:'page:horaires',d:'2026-10-05'},
+ {id:'n5',type:'reply',title:'Réponse à votre demande',body:'Exemple de notification (aucune demande réelle)',read:true,to:'contact',d:'2026-10-03'},
+ {id:'n6',type:'admin',title:'Information administrative',body:'Pensez à vérifier votre dossier (exemple)',read:true,to:'page:inscriptions',d:'2026-09-30'}
+];
+var NTYPES={news:{l:'Actualité',i:'news',t:'blue'},ann:{l:'Annonce',i:'mega',t:'amber'},event:{l:'Événement',i:'cal',t:'purple'},update:{l:'Mise à jour',i:'refresh',t:'teal'},reply:{l:'Réponse',i:'mail',t:'green'},admin:{l:'Administratif',i:'file',t:'slate'}};
+var ROLES={visitor:'Visiteur',student:'Élève ou étudiant',staff:'Personnel',admin:'Administrateur'};
+var RANK={visitor:0,student:1,staff:2,admin:3};
+
+var IS_IOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+var IS_CHROMIUM=/Chrome\//.test(navigator.userAgent)&&!/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent)&&!IS_IOS;
+var FONTS=[['inter','Inter'],['system','Système'],['round','Arrondie'],['legible','Lisible']];
+var FONTMAP={inter:'Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif',system:'system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,sans-serif',round:'ui-rounded,"SF Pro Rounded",system-ui,-apple-system,sans-serif',legible:'"Atkinson Hyperlegible",system-ui,-apple-system,sans-serif'};
+/* ---------- état ---------- */
+var S={route:'welcome',params:{},hist:[],user:null,news:JSON.parse(JSON.stringify(NEWS0)),anns:JSON.parse(JSON.stringify(ANNS0)),
+ notifs:JSON.parse(JSON.stringify(NOTIFS0)),nf:{q:'',cat:'all',sort:'desc'},df:{q:'',cat:'all'},faqCat:'Tous',admTab:'news',log:[],lastSubmit:0,
+ prefs:{news:true,ann:true,event:true,update:true,reply:true,admin:true},homeReady:false,newsReady:false,
+ adminUsers:[{id:'u1',name:'Camille Exemple',role:'student',on:true},{id:'u2',name:'Alex Exemple',role:'staff',on:true},{id:'u3',name:'Sam Exemple',role:'admin',on:true},{id:'u4',name:'Robin Exemple',role:'student',on:false}],
+ settings:{theme:'light',size:1,reduce:false,glass:false,font:'inter'}};
+var role=function(){return S.user?S.user.role:'visitor'};
+var can=function(min){return RANK[role()]>=RANK[min]};
+
+/* ---------- utilitaires UI ---------- */
+function toast(msg){var r=$('#toast-root');r.innerHTML='<div class="toast">'+esc(msg)+'</div>';clearTimeout(toast.t);toast.t=setTimeout(function(){r.innerHTML=''},3200)}
+function copyText(t,okMsg){
+  var done=function(){toast(okMsg||'Copié')};
+  var fb=function(){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){toast('Copie impossible : sélectionnez le texte manuellement')}ta.remove()};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fb)}else fb();
+}
+var lastFocus=null;
+function openModal(o){
+  closeModal(true);lastFocus=document.activeElement;
+  var acts=o.actions||[{label:'Fermer',cls:'btn-secondary'}];
+  var root=$('#modal-root');
+  root.innerHTML='<div class="scrim" id="scrim"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><h2 class="h2" id="mt">'+esc(o.title)+'</h2><div class="stack">'+o.body+'</div><div class="mact">'+acts.map(function(a,i){return '<button type="button" class="btn '+(a.cls||'btn-primary')+' btn-sm" data-i="'+i+'">'+esc(a.label)+'</button>'}).join('')+'</div></div></div>';
+  var dlg=$('.modal',root);
+  refractModal(dlg);
+  $$('[data-i]',dlg).forEach(function(b){b.addEventListener('click',function(){var a=acts[+b.dataset.i];var keep=a.fn&&a.fn(dlg)===false;if(!keep)closeModal()})});
+  $('#scrim').addEventListener('mousedown',function(e){if(e.target.id==='scrim')closeModal()});
+  dlg.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeModal();return}
+    if(e.key==='Tab'){var f=$$('button,input,select,textarea,a[href]',dlg).filter(function(x){return !x.disabled});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+  });
+  var first=$('input,select,textarea',dlg)||$('[data-i]:last-child',dlg);first&&first.focus();
+}
+function closeModal(silent){$('#modal-root').innerHTML='';if(!silent&&lastFocus&&lastFocus.focus&&document.contains(lastFocus))lastFocus.focus()}
+
+function badge(t,tone,extra){return '<span class="badge '+(extra||'')+(tone?' t-'+tone:'')+'">'+esc(t)+'</span>'}
+var demoBadge=function(){return badge('Exemple','', 'line')};
+function noticeHtml(kind,icon,html){return '<div class="notice '+kind+'" role="note">'+ic(icon,20)+'<div>'+html+'</div></div>'}
+var DEMO_NOTE=noticeHtml('info','info','<b>Version de démonstration.</b> Les contenus sont des exemples, jamais des informations officielles.');
+function stateCard(o){
+  return '<div class="card state t-'+(o.tone||'blue')+'"><div class="big">'+ic(o.icon,34)+'</div><h2 class="h2">'+esc(o.title)+'</h2><p>'+esc(o.text)+'</p>'+(o.acts?'<div class="acts">'+o.acts.map(function(a){return '<button class="btn '+(a.p?'btn-primary':'btn-secondary')+' btn-sm" '+(a.go?'data-go="'+a.go+'"':'data-act="'+a.act+'"')+'>'+esc(a.l)+'</button>'}).join('')+'</div>':'')+'</div>';
+}
+function head(title,sub,opts){
+  opts=opts||{};
+  return '<header class="pagehead">'+(opts.noback?'':'<button class="back" data-act="back">'+ic('back',20)+' Retour</button>')+'<h1 class="h1" tabindex="-1">'+esc(title)+'</h1>'+(sub?'<p class="sub">'+esc(sub)+'</p>':'')+'</header>';
+}
+function row(o){
+  var tag=o.go?'a':'button';
+  var attrs=o.go?'href="#" data-go="'+o.go+'"':'type="button" data-act="'+o.act+'"'+(o.id?' data-id="'+esc(o.id)+'"':'');
+  return '<'+tag+' class="row" '+attrs+'><span class="sq t-'+(o.tone||'blue')+'">'+ic(o.icon||'info',24)+'</span><span class="txt"><b>'+esc(o.title)+'</b>'+(o.desc?'<span>'+esc(o.desc)+'</span>':'')+'</span>'+(o.badge||'')+(o.nochev?'':'<span class="chev">'+ic('chev',20)+'</span>')+'</'+tag+'>';
+}
+function skeleton(n){var s='';for(var i=0;i<n;i++)s+='<div class="card pad stack"><div class="sk" style="height:14px;width:30%"></div><div class="sk" style="height:20px;width:80%"></div><div class="sk" style="height:14px;width:95%"></div></div>';return '<div class="stack" role="status" aria-label="Chargement en cours">'+s+'</div>'}
+function publishedNews(){return S.news.filter(function(n){return n.status==='published'}).sort(function(a,b){return a.date<b.date?1:-1})}
+function activeAnns(){return S.anns.filter(function(a){return a.status==='published'&&(!a.start||a.start<=TODAY_ISO)&&(!a.end||a.end>=TODAY_ISO)})}
+function newsCard(n,big){
+  var c=CATS[n.cat]||CATS.general;
+  var meta='<div class="meta">'+badge(c.name,c.tone)+'<time datetime="'+n.date+'">'+fmtDate(n.date)+'</time></div>';
+  if(big)return '<a class="card news" href="#" data-go="article:'+n.id+'"><div class="cover t-'+c.tone+'">'+ic(c.icon,40)+'</div><div class="body">'+meta+'<h3>'+esc(n.title)+'</h3><p>'+esc(n.summary)+'</p><span class="more">Lire l’article '+ic('chev',16)+'</span></div></a>';
+  return '<a class="row" href="#" data-go="article:'+n.id+'"><span class="sq sm t-'+c.tone+'">'+ic(c.icon,20)+'</span><span class="txt"><b>'+esc(n.title)+'</b><span>'+esc(c.name)+' · '+fmtDate(n.date,{day:'numeric',month:'short'})+'</span></span><span class="chev">'+ic('chev',20)+'</span></a>';
+}
+function annHtml(a){
+  var L={urgent:['Urgent','alert'],important:['Important','mega'],info:['Info','info']}[a.level];
+  return '<div class="card ann '+a.level+'"><span class="lv">'+ic(L[1],20)+'</span><div class="txt" style="min-width:0"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b>'+esc(a.title)+'</b>'+badge(L[0],'','line')+(a.featured?badge('À la une','blue'):'')+'</div><p class="sub" style="margin-top:2px">'+esc(a.msg)+'</p></div></div>';
+}
+
+function annFeatCard(a){
+  var L={urgent:['Urgent','alert','red'],important:['Important','mega','amber'],info:['Info','info','blue']}[a.level];
+  return '<a class="card news" href="#" data-act="annopen" data-id="'+a.id+'"><div class="cover t-'+L[2]+'">'+ic(L[1],40)+'</div><div class="body"><div class="meta">'+badge('Annonce · '+L[0],L[2])+'</div><h3>'+esc(a.title)+'</h3><p>'+esc(a.msg)+'</p><span class="more">Lire l’annonce '+ic('chev',16)+'</span></div></a>';
+}
+/* ---------- navigation ---------- */
+var TABS=[['home','Accueil','home'],['info','Informations','info'],['news','Actualités','news'],['services','Services','grid'],['profile','Profil','user']];
+function tabOf(r,p){
+  if(r==='home'||r==='search')return 'home';
+  if(r==='info'||r==='docs'||r==='schooling'||r==='campus'||r==='events')return 'info';
+  if(r==='page'){return 'info'}
+  if(r==='news'||r==='article')return 'news';
+  if(r==='services'||r==='service'||r==='contact'||r==='faq')return 'services';
+  return 'profile';
+}
+function renderNav(){
+  var cur=S.route==='welcome'?'':tabOf(S.route,S.params);
+  var unread=S.notifs.filter(function(n){return !n.read}).length;
+  var items=TABS.map(function(t){return '<button class="tab" data-tab="'+t[0]+'" '+(cur===t[0]?'aria-current="page"':'')+'><span class="w">'+ic(t[2],22)+'</span><span>'+t[1]+'</span></button>'}).join('');
+  var tbEl=$('#tabbar');
+  if(!tbEl.firstChild){tbEl.innerHTML='<span class="bubble" aria-hidden="true"></span>'+items}
+  else{$$('.tab',tbEl).forEach(function(b){if(b.dataset.tab===cur)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')})}
+  $('#side').innerHTML='<div class="brand">'+logo(34)+'<span>Campus<br>Rosa Parks</span></div>'+items+'<hr>'+
+   '<button class="tab" data-go="search"><span class="w">'+ic('search',22)+'</span><span>Recherche</span></button>'+
+   '<button class="tab" data-go="notifs"><span class="w">'+ic('bell',22)+'</span><span>Notifications'+(unread?' ('+unread+')':'')+'</span></button>';
+}
+function parse(s){var i=s.indexOf(':');return i<0?[s,{}]:[s.slice(0,i),{id:s.slice(i+1)}]}
+function goStr(s){var p=parse(s);go(p[0],p[1])}
+function go(route,params,opts){
+  opts=opts||{};params=params||{};
+  var same=S.route===route&&JSON.stringify(S.params)===JSON.stringify(params);
+  if(!opts.replace&&S.route&&!same){S.hist.push({route:S.route,params:S.params,y:window.scrollY})}
+  S.route=route;S.params=params;render();window.scrollTo(0,0);
+}
+function back(){var h=S.hist.pop();if(h){S.route=h.route;S.params=h.params;render();window.scrollTo(0,h.y||0)}else{go('home',{},{replace:true})}}
+function tab(r){S.hist=[];go(r,{},{replace:true})}
+
+/* ---------- Liquid Glass : bulle d'onglet, glisser, réfraction ---------- */
+function glassOn(){return document.documentElement.classList.contains('glass')}
+var lgSvg=null;
+function lgHost(){
+  if(!lgSvg){lgSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');lgSvg.setAttribute('aria-hidden','true');lgSvg.style.cssText='position:absolute;width:0;height:0;pointer-events:none';document.body.appendChild(lgSvg)}
+  return lgSvg;
+}
+/* Carte de déplacement : au bord, le fond est tiré depuis l'intérieur de la forme ; au centre, aucune déformation. */
+function refractMap(w,h,r,bezel){
+  var c=document.createElement('canvas');c.width=w;c.height=h;
+  var g=c.getContext('2d'),img=g.createImageData(w,h),d=img.data;
+  for(var j=0;j<h;j++){for(var i=0;i<w;i++){
+    var px=i+.5,py=j+.5,qx=Math.abs(px-w/2)-(w/2-r),qy=Math.abs(py-h/2)-(h/2-r);
+    var dist=-(Math.hypot(Math.max(qx,0),Math.max(qy,0))+Math.min(Math.max(qx,qy),0)-r);
+    var k=(i+j*w)*4,R=128,G=128;
+    if(dist>=0&&dist<bezel){
+      var sx=px<w/2?-1:1,sy=py<h/2?-1:1,nx,ny;
+      if(qx>0&&qy>0){var l=Math.hypot(qx,qy)||1;nx=sx*qx/l;ny=sy*qy/l}else if(qx>qy){nx=sx;ny=0}else{nx=0;ny=sy}
+      var t=1-dist/bezel,m=t*t*(3-2*t);
+      R=Math.round(128-127*nx*m);G=Math.round(128-127*ny*m);
+    }
+    d[k]=R;d[k+1]=G;d[k+2]=128;d[k+3]=255;
+  }}
+  g.putImageData(img,0,0);
+  return c.toDataURL('image/png');
+}
+function setRefraction(el,prop,id,w,h,r,bezel,scale){
+  if(!el)return;
+  w=Math.round(w);h=Math.round(h);
+  if(w<8||h<8||!glassOn()||!IS_CHROMIUM){el.style.removeProperty(prop);el._lgKey=null;return}
+  var key=w+'x'+h;
+  if(el._lgKey===key&&el.style.getPropertyValue(prop))return;
+  try{
+    var host=lgHost(),old=host.querySelector('#'+id);if(old)old.remove();
+    var url=refractMap(w,h,Math.min(r,h/2,w/2),bezel);
+    var tmp=document.createElement('div');
+    tmp.innerHTML='<svg xmlns="http://www.w3.org/2000/svg"><filter id="'+id+'" x="0" y="0" width="'+w+'" height="'+h+'" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feImage href="'+url+'" x="0" y="0" width="'+w+'" height="'+h+'" preserveAspectRatio="none" result="map"/><feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="b"/><feDisplacementMap in="b" in2="map" scale="'+scale+'" xChannelSelector="R" yChannelSelector="G"/></filter></svg>';
+    host.appendChild(tmp.querySelector('filter'));
+    el.style.setProperty(prop,'url(#'+id+') blur(1px) saturate(190%) brightness(1.08)');
+    el._lgKey=key;
+  }catch(e){el.style.removeProperty(prop);el._lgKey=null}
+}
+function refractModal(m){setRefraction(m,'--lg-bf-mod','lg-mod',m.offsetWidth,m.offsetHeight,30,22,28)}
+function refractAll(){
+  var tb=$('#tabbar');if(!tb)return;
+  var bub=$('.bubble',tb);
+  setRefraction(tb,'--lg-bf-bar','lg-bar',tb.offsetWidth,tb.offsetHeight,34,16,24);
+  if(bub)setRefraction(bub,'--lg-bf-bub','lg-bub',bub.offsetWidth,bub.offsetHeight,28,14,18);
+}
+function positionBubble(){
+  var tb=$('#tabbar'),bub=tb&&$('.bubble',tb);if(!bub)return;
+  var act=$('.tab[aria-current="page"]',tb);
+  if(!act||!act.offsetWidth){bub.style.opacity='0';return}
+  bub.style.opacity='1';
+  var x=act.offsetLeft,w=act.offsetWidth;
+  var first=!bub.dataset.init,moved=bub.dataset.x!==undefined&&Math.abs(parseFloat(bub.dataset.x)-x)>2;
+  if(first)bub.classList.add('nt');
+  bub.style.width=w+'px';bub.style.setProperty('--bx',x+'px');bub.dataset.x=x;
+  if(first){void bub.offsetWidth;bub.classList.remove('nt');bub.dataset.init='1'}
+  else if(moved){bub.classList.remove('stretch');void bub.offsetWidth;bub.classList.add('stretch')}
+}
+function lgRefresh(){positionBubble();refractAll()}
+(function(){
+  var tb=$('#tabbar'),st=null,suppress=false,rz=null;
+  tb.addEventListener('pointerdown',function(e){
+    if(!glassOn())return;
+    var bub=$('.bubble',tb);if(!bub||bub.style.opacity==='0')return;
+    st={x:e.clientX,drag:false};tb.classList.add('press');
+  });
+  window.addEventListener('pointermove',function(e){
+    if(!st)return;
+    if(!st.drag&&Math.abs(e.clientX-st.x)>8){st.drag=true;tb.classList.add('drag')}
+    if(st.drag){
+      var bub=$('.bubble',tb),r=tb.getBoundingClientRect(),w=bub.offsetWidth;
+      bub.style.setProperty('--bx',Math.max(6,Math.min(r.width-6-w,e.clientX-r.left-w/2))+'px');
+    }
+  });
+  function end(e,cancel){
+    if(!st)return;
+    var s=st;st=null;tb.classList.remove('press','drag');
+    if(s.drag){
+      suppress=true;setTimeout(function(){suppress=false},350);
+      if(!cancel){
+        var best=null,bd=1e9;
+        $$('.tab[data-tab]',tb).forEach(function(t){var c=t.getBoundingClientRect(),dd=Math.abs(c.left+c.width/2-e.clientX);if(dd<bd){bd=dd;best=t}});
+        if(best)tab(best.dataset.tab);
+      }
+      positionBubble();
+    }
+  }
+  window.addEventListener('pointerup',function(e){end(e,false)});
+  window.addEventListener('pointercancel',function(e){end(e,true)});
+  tb.addEventListener('click',function(e){if(suppress){e.stopPropagation();e.preventDefault();suppress=false}},true);
+  window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(lgRefresh,120)});
+})();
+
+/* ---------- vues ---------- */
+var V={};
+function guard(min){
+  if(can(min))return null;
+  if(role()==='visitor')return {html:head('Connexion requise')+stateCard({tone:'amber',icon:'lock',title:'Cette page demande une connexion',text:'Connectez-vous pour accéder à ce contenu. Les informations publiques restent accessibles sans compte.',acts:[{l:'Se connecter',go:'login',p:1},{l:'Retour à l’accueil',go:'home'}]})};
+  return {html:head('Accès refusé')+stateCard({tone:'red',icon:'shield',title:'Accès refusé',text:'Votre rôle ne permet pas d’ouvrir cette page. Contactez un administrateur si vous pensez qu’il s’agit d’une erreur.',acts:[{l:'Retour à l’accueil',go:'home',p:1}]})};
+}
+
+V.welcome=function(){
+  return {bare:true,html:'<div class="welcome"><div class="hero">'+logo(96)+'<h1 class="word" tabindex="-1"><span class="l">Campus</span><span class="b">Rosa Parks</span></h1><div class="rule"></div><p class="slogan">Votre campus, au plus près de vous.</p></div>'+
+  '<div class="waves" aria-hidden="true"><svg viewBox="0 0 400 260" preserveAspectRatio="none" focusable="false"><path d="M0 120 C70 60 150 70 230 130 C290 175 340 180 400 150 V260 H0Z" fill="var(--blue-bg)"/><path d="M0 170 C80 120 170 150 250 190 C320 225 370 215 400 205 V260 H0Z" fill="var(--brand-text)" opacity=".92"/><path d="M0 105 C90 70 190 95 260 135 C320 165 370 150 400 120" fill="none" stroke="var(--accent)" stroke-opacity=".35" stroke-width="1.5"/></svg></div>'+
+  '<div class="cta"><button class="btn btn-primary btn-block" data-go="login" style="min-height:56px;justify-content:space-between;padding:0 24px">Se connecter '+ic('chev',20)+'</button><button class="btn btn-secondary btn-block" data-act="discover" style="min-height:56px">Découvrir le campus</button><p class="small foot">Version de démonstration · contenus d’exemple</p></div></div>'};
+};
+
+V.setup=function(p){
+  var fromSettings=!!(p&&p.id==='settings');
+  return {bare:true,html:'<div class="setup"><header class="stack" style="align-items:flex-start;gap:10px">'+logo(52)+'<h1 class="h1" tabindex="-1">Configurons votre application</h1><p class="sub">Choisissez l’apparence qui vous convient. Vous pourrez tout modifier plus tard dans Paramètres.</p></header><div class="stack" id="sbody"></div><div class="stack"><button class="btn btn-primary btn-block" data-act="setupdone" style="min-height:56px">'+(fromSettings?'Terminer':'Continuer')+'</button>'+(fromSettings?'':'<button class="btn btn-ghost" data-act="setupdone">Passer et garder les réglages par défaut</button>')+'</div></div>',mount:fillSetup};
+};
+function fillSetup(){
+  var box=$('#sbody');if(!box)return;
+  var st=S.settings;
+  var ae=document.activeElement,key=(ae&&ae.dataset&&ae.dataset.k)?ae.dataset.k+'|'+ae.dataset.v:null;
+  function seg(label,k,opts,cur,id){return '<div class="field" role="group" aria-labelledby="'+id+'"><span class="lbl" id="'+id+'">'+label+'</span><div class="seg">'+opts.map(function(o){return '<button type="button" data-act="cfg" data-k="'+k+'" data-v="'+o[0]+'" aria-pressed="'+(String(cur)===String(o[0]))+'">'+o[1]+'</button>'}).join('')+'</div></div>'}
+  box.innerHTML=
+  '<section class="card pad stack"><h2 class="h3">Liquid Glass</h2><p class="sub">Un style translucide inspiré d’iOS : barre de navigation flottante, reflets et flou.'+(IS_IOS?'':' Recommandé sur iPhone et iPad.')+'</p><div class="pv" aria-hidden="true"><div class="pvcap"><span class="on">'+ic('home',20)+'</span><span>'+ic('info',20)+'</span><span>'+ic('news',20)+'</span><span>'+ic('grid',20)+'</span></div></div>'+seg('Activer l’effet','glass',[[1,'Oui'],[0,'Non']],st.glass?1:0,'sg1')+'<p class="small">Reflets de bord, bulle d’onglet que l’on peut faire glisser et flou léger. Sous Chrome (Android, ordinateur), le fond est en plus déformé optiquement. Safari sur iPhone ne le permet pas.</p></section>'+
+  '<section class="card pad stack"><h2 class="h3">Écriture</h2>'+seg('Taille du texte','size',[[1,'Normale'],[1.125,'Grande'],[1.25,'Très grande']],st.size,'sg2')+seg('Police','font',FONTS,st.font,'sg3')+'<p class="sample">Aa — Votre campus, au plus près de vous.</p></section>'+
+  '<section class="card pad stack"><h2 class="h3">Affichage</h2>'+seg('Thème','theme',[['auto','Automatique'],['light','Clair'],['dark','Sombre']],st.theme,'sg4')+seg('Animations','reduce',[[0,'Normales'],[1,'Réduites']],st.reduce?1:0,'sg5')+'</section>';
+  if(key){var b=$$('[data-k]',box).filter(function(x){return x.dataset.k+'|'+x.dataset.v===key})[0];if(b)b.focus({preventScroll:true})}
+}
+V.home=function(){
+  if(!S.homeReady){setTimeout(function(){S.homeReady=true;if(S.route==='home')render()},500);return {html:'<div class="top"><div class="sk" style="width:44px;height:44px;border-radius:14px"></div><div class="sk" style="height:28px;width:55%"></div></div><div class="sk" style="height:52px;border-radius:16px"></div>'+skeleton(2)}}
+  var u=S.user,unread=S.notifs.filter(function(n){return !n.read}).length;
+  var featCards=activeAnns().filter(function(a){return a.featured}).slice(0,2).map(annFeatCard).concat(publishedNews().filter(function(n){return n.featured}).slice(0,3).map(function(n){return newsCard(n,true)}));
+  var anns=activeAnns().slice(0,4);
+  var quick=[['Plan du campus','pin','page:acces','blue'],['Contact','mail','contact','purple'],['Documents utiles','file','docs','green'],['Questions fréquentes','help','faq','orange']];
+  return {html:
+  '<header class="top"><div class="hello grow">'+logo(44)+'<div style="min-width:0"><p class="sub" style="font-weight:500">Bonjour 👋</p><h1 class="h1" style="font-size:1.375rem" tabindex="-1">'+(u?esc(u.first):'Bienvenue sur Campus Rosa Parks')+'</h1></div></div>'+
+  '<button class="iconbtn" data-go="notifs" aria-label="Notifications'+(unread?' ('+unread+' non lues)':'')+'">'+ic('bell',22)+(unread?'<span class="dot" aria-hidden="true">'+unread+'</span>':'')+'</button>'+
+  '<button class="avatar" data-tab="profile" aria-label="Profil">'+(u?esc(u.first.charAt(0)):ic('user',22))+'</button></header>'+
+  '<button class="searchbtn" data-go="search">'+ic('search',20)+'<span>Rechercher une information, un service…</span></button>'+
+  DEMO_NOTE+
+  '<section class="stack" aria-labelledby="hc"><h2 class="sr" id="hc">Catégories</h2><div class="cats">'+HOMECATS.map(function(c){return '<button class="cat t-'+c.t+'" data-go="'+c.to+'">'+ic(c.i,28)+'<span>'+c.l+'</span></button>'}).join('')+'</div></section>'+
+  '<section class="stack"><div class="sec-h"><h2 class="h2">À la une</h2><button class="btn btn-ghost btn-sm" data-tab="news">Voir tout</button></div>'+(featCards.length?'<div class="snap">'+featCards.join('')+'</div>':stateCard({icon:'news',title:'Aucune actualité à la une',text:'Les actualités mises en avant apparaîtront ici.'}))+'</section>'+
+  '<section class="stack"><h2 class="h2">Annonces importantes</h2>'+(anns.length?anns.map(annHtml).join(''):stateCard({icon:'mega',tone:'amber',title:'Aucune annonce en cours',text:'Les communications prioritaires de l’établissement s’afficheront ici.'}))+'</section>'+
+  '<section class="stack"><h2 class="h2">Accès rapides</h2>'+quick.map(function(q){return row({title:q[0],icon:q[1],go:q[2],tone:q[3]})}).join('')+'</section>',
+  mount:function(){initPull()}};
+};
+
+V.news=function(){
+  if(!S.newsReady){setTimeout(function(){S.newsReady=true;if(S.route==='news')render()},350);return {html:head('Actualités','',{noback:true})+skeleton(3)}}
+  var f=S.nf;
+  return {html:head('Actualités','Les publications de l’établissement.',{noback:true})+
+  '<div class="searchfield"><label class="sr" for="nq">Rechercher dans les actualités</label>'+ic('search',20)+'<input class="input" id="nq" type="search" placeholder="Rechercher une actualité…" value="'+esc(f.q)+'" autocomplete="off"></div>'+
+  '<div class="chips" role="group" aria-label="Filtrer par catégorie" id="ncats"></div>'+
+  '<div class="sec-h"><p class="small" id="ncount" aria-live="polite"></p><button class="btn btn-ghost btn-sm" id="nsort" data-act="sort"></button></div>'+
+  '<div class="stack" id="nlist"></div>',
+  mount:function(){
+    $('#nq').addEventListener('input',function(e){S.nf.q=e.target.value;listNews()});
+    listNews();
+  }};
+};
+function listNews(){
+  var f=S.nf,all=publishedNews();
+  var chips='<button class="chip" aria-pressed="'+(f.cat==='all')+'" data-act="ncat" data-id="all">Toutes</button>'+Object.keys(CATS).map(function(k){return '<button class="chip" aria-pressed="'+(f.cat===k)+'" data-act="ncat" data-id="'+k+'">'+CATS[k].name+'</button>'}).join('');
+  var el=$('#ncats');if(!el)return;el.innerHTML=chips;
+  var q=norm(f.q);
+  var list=all.filter(function(n){return (f.cat==='all'||n.cat===f.cat)&&(!q||norm(n.title+' '+n.summary).indexOf(q)>-1)});
+  list.sort(function(a,b){return f.sort==='desc'?(a.date<b.date?1:-1):(a.date>b.date?1:-1)});
+  $('#nsort').innerHTML=ic('refresh',16)+' '+(f.sort==='desc'?'Plus récentes d’abord':'Plus anciennes d’abord');
+  $('#ncount').textContent=list.length+' actualité'+(list.length>1?'s':'');
+  var out='';
+  if(!all.length)out=stateCard({icon:'news',title:'Aucune actualité publiée',text:'Les actualités publiées par l’établissement apparaîtront ici.'});
+  else if(!list.length)out=stateCard({icon:'search',tone:'amber',title:'Aucun résultat',text:'Aucune actualité ne correspond à votre recherche. Essayez d’autres mots ou retirez le filtre.',acts:[{l:'Réinitialiser',act:'nreset',p:1}]});
+  else{
+    var showFeat=!q&&f.cat==='all';
+    out=list.map(function(n,i){return newsCard(n,showFeat&&n.featured&&i<3)}).join('');
+  }
+  $('#nlist').innerHTML=out;
+}
+V.article=function(p){
+  var n=S.news.filter(function(x){return x.id===p.id})[0];
+  if(!n)return {html:head('Actualité introuvable')+stateCard({icon:'search',tone:'amber',title:'Cette actualité n’existe plus',text:'Elle a peut-être été dépubliée ou archivée.',acts:[{l:'Voir les actualités',go:'news',p:1}]})};
+  var c=CATS[n.cat];
+  var body=n.body.map(function(b){return b.t==='p'?'<p>'+esc(b.x)+'</p>':b.t==='h'?'<h2>'+esc(b.x)+'</h2>':'<ul>'+b.x.map(function(i){return '<li>'+esc(i)+'</li>'}).join('')+'</ul>'}).join('');
+  var rel=publishedNews().filter(function(x){return x.id!==n.id}).sort(function(a,b){return (b.cat===n.cat)-(a.cat===n.cat)}).slice(0,3);
+  return {html:'<button class="back" data-act="back">'+ic('back',20)+' Retour</button>'+
+  '<div class="card news"><div class="cover t-'+c.tone+'" style="height:132px">'+ic(c.icon,48)+'</div></div>'+
+  '<header class="pagehead"><div class="meta" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'+badge(c.name,c.tone)+demoBadge()+(n.status!=='published'?badge(n.status==='draft'?'Brouillon':'Archivé','','warn'):'')+'</div><h1 class="h1" tabindex="-1">'+esc(n.title)+'</h1><p class="sub"><time datetime="'+n.date+'">'+fmtDate(n.date)+'</time> · '+esc(n.author)+'</p></header>'+
+  '<article class="article-body"><p style="font-weight:500">'+esc(n.summary)+'</p>'+body+'</article>'+
+  (n.files&&n.files.length?'<section class="stack"><h2 class="h2">Pièces jointes</h2>'+n.files.map(function(f){return row({icon:'clip',title:f.n,desc:f.s+' · fichier d’exemple',act:'dlsample',tone:'slate',nochev:true,badge:'<span class="btn btn-secondary btn-sm">Ouvrir</span>'})}).join('')+'</section>':'')+
+  (n.links&&n.links.length?'<section class="stack"><h2 class="h2">Liens utiles</h2>'+n.links.map(function(l){return row({icon:'chev',title:l.l,go:l.to,tone:'blue'})}).join('')+'</section>':'')+
+  '<div><button class="btn btn-secondary" data-act="share" data-id="'+n.id+'">'+ic('share',18)+' Partager l’article</button></div>'+
+  (rel.length?'<section class="stack"><h2 class="h2">Articles associés</h2>'+rel.map(function(x){return newsCard(x,false)}).join('')+'</section>':'')};
+};
+
+V.info=function(){
+  var items=[['presentation','Présentation de l’établissement','Présentation, valeurs, organisation','building','blue'],['horaires','Horaires','Accueil, administration, vie scolaire','clock','purple'],['contacts','Contacts','Annuaire des services','phone','orange'],['acces','Accès et transports','Adresse, plan, transports','bus','green'],['reglement','Règlement intérieur','Consultation et téléchargement','shield','slate']];
+  return {html:head('Informations pratiques','Tout ce qu’il faut savoir sur l’établissement.',{noback:true})+DEMO_NOTE+
+  '<div class="stack">'+items.map(function(i){return row({title:i[1],desc:i[2],icon:i[3],tone:i[4],go:'page:'+i[0]})}).join('')+
+  row({title:'Documents administratifs',desc:'Recherche, filtres, téléchargement',icon:'file',tone:'teal',go:'docs'})+
+  row({title:'Scolarité',desc:'Inscriptions, examens, attestations',icon:'cap',tone:'green',go:'schooling'})+
+  row({title:'Vie de campus',desc:'Espaces, restauration, associations',icon:'building',tone:'pink',go:'campus'})+'</div>'};
+};
+V.schooling=function(){
+  var ids=['inscriptions','calendrier','examens','certificats','reglement-etudes'];
+  return {html:head('Scolarité','Toutes les informations pour vous accompagner dans votre parcours.')+DEMO_NOTE+
+  '<div class="stack">'+ids.map(function(id){var p=PAGES[id];return row({title:p.title,desc:p.intro.split('.')[0]+'.',icon:p.icon,tone:p.tone,go:'page:'+id})}).join('')+row({title:'FAQ',desc:'Les réponses à vos questions.',icon:'help',tone:'orange',go:'faq'})+'</div>'};
+};
+V.campus=function(){
+  var ids=['lieux','restauration','associations','sante','durable','accessibilite'];
+  return {html:head('Vie de campus','Découvrez les services et lieux de vie.')+DEMO_NOTE+
+  '<div class="stack">'+row({title:'Le campus',desc:'Bâtiments, espaces de travail et de vie.',icon:'building',tone:'orange',go:'page:lieux'})+row({title:'Restauration',desc:'Solutions de restauration sur le campus.',icon:'food',tone:'pink',go:'page:restauration'})+row({title:'Associations et clubs',desc:'Vie étudiante et engagements.',icon:'users',tone:'blue',go:'page:associations'})+row({title:'Événements',desc:'Calendrier des événements du campus.',icon:'cal',tone:'purple',go:'events'})+row({title:'Santé et bien-être',desc:'Accompagnement et prévention.',icon:'heart',tone:'purple',go:'page:sante'})+row({title:'Développement durable',desc:'Nos actions pour un campus responsable.',icon:'leaf',tone:'green',go:'page:durable'})+row({title:'Accessibilité',desc:'Aménagements et services.',icon:'access',tone:'teal',go:'page:accessibilite'})+'</div>'};
+};
+V.page=function(p){
+  var pg=PAGES[p.id];
+  if(!pg)return {html:head('Page introuvable')+stateCard({icon:'search',tone:'amber',title:'Cette page n’existe pas',text:'Le lien est peut-être incorrect.',acts:[{l:'Accueil',go:'home',p:1}]})};
+  var secs=pg.secs.map(function(s){
+    var b='';
+    if(s.p)b+='<p class="'+(s.p.indexOf(PH)===0?'sub':'')+'">'+esc(s.p)+'</p>';
+    if(s.ul)b+='<ul class="ul">'+s.ul.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
+    if(s.steps)b+='<ol class="steps">'+s.steps.map(function(x){return '<li><span>'+esc(x)+'</span></li>'}).join('')+'</ol>';
+    if(s.kv)b+='<dl class="kv">'+s.kv.map(function(x){return '<div><dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+'</dd></div>'}).join('')+'</dl>';
+    if(s.contacts)b+='<div class="stack">'+s.contacts.map(function(c){return '<div class="stack" style="gap:6px"><b>'+esc(c[0])+'</b><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="num" style="min-width:0;overflow-wrap:anywhere">'+esc(c[1])+'</span><button class="btn btn-secondary btn-sm" data-act="copy" data-id="'+esc(c[1])+'">Copier</button></div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="num">'+esc(c[2])+'</span><button class="btn btn-secondary btn-sm" data-act="copy" data-id="'+esc(c[2])+'">Copier</button></div></div>'}).join('<hr class="divider">')+'</div>';
+    return '<section class="card pad stack"><h2 class="h3">'+esc(s.h)+'</h2>'+b+'</section>';
+  }).join('');
+  return {html:head(pg.title,pg.intro)+'<div class="top" style="gap:8px">'+demoBadge()+'<span class="small">Contenu d’exemple, à remplacer par les données officielles.</span></div>'+secs+(pg.cta?'<button class="btn btn-primary" data-go="'+pg.cta.to+'">'+esc(pg.cta.l)+'</button>':'')};
+};
+V.events=function(){
+  var ev=EVENTS.slice().sort(function(a,b){return a.date>b.date?1:-1});
+  var cur='',out='';
+  ev.forEach(function(e){
+    var m=fmtDate(e.date,{month:'long',year:'numeric'});
+    if(m!==cur){cur=m;out+='<h2 class="month">'+m+'</h2>'}
+    var past=e.date<TODAY_ISO;
+    var d=new Date(e.date+'T12:00:00');
+    out+='<div class="card pad" style="display:flex;gap:14px;align-items:flex-start"><div class="date t-'+e.tone+'"><b class="num">'+d.getDate()+'</b><span>'+d.toLocaleDateString('fr-FR',{month:'short'}).replace('.','')+'</span></div><div style="min-width:0;flex:1"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b>'+esc(e.title)+'</b>'+(past?badge('Terminé','','line'):'')+'</div><p class="sub">'+esc(e.time)+' · '+esc(e.loc)+'</p><p style="margin-top:4px">'+esc(e.desc)+'</p></div></div>';
+  });
+  return {html:head('Événements','Le calendrier des événements du campus, qui n’est pas un emploi du temps.')+DEMO_NOTE+'<div class="stack">'+out+'</div>'};
+};
+
+V.services=function(){
+  return {html:head('Services','Les démarches et demandes de l’établissement.',{noback:true})+
+  noticeHtml('info','info','Seuls les services activés par l’établissement sont disponibles.')+
+  '<div class="stack">'+SERVICES.map(function(s){
+    var lock=s.on&&!can(s.min);
+    return row({title:s.title,desc:s.on?s.desc:'Non activé par l’établissement',icon:s.icon,tone:s.tone,go:'service:'+s.id,badge:!s.on?badge('Non activé','','line'):lock?badge('Connexion requise','amber'):''});
+  }).join('')+'</div>'};
+};
+V.service=function(p){
+  var s=SERVICES.filter(function(x){return x.id===p.id})[0];
+  if(!s)return {html:head('Service introuvable')+stateCard({icon:'search',tone:'amber',title:'Service introuvable',text:'Ce service n’existe pas ou n’est plus proposé.',acts:[{l:'Voir les services',go:'services',p:1}]})};
+  var cta;
+  if(!s.on)cta=noticeHtml('warn','alert','<b>Service non activé.</b> L’établissement ne propose pas ce service pour le moment.');
+  else if(!can(s.min))cta='<button class="btn btn-primary" data-go="login">'+ic('lock',18)+' Se connecter pour continuer</button>';
+  else cta='<button class="btn btn-primary" data-act="svcgo" data-id="'+s.id+'">Accéder au service</button>';
+  return {html:head(s.title,s.desc)+'<div class="card pad stack"><div style="display:flex;gap:12px;align-items:center"><span class="sq t-'+s.tone+'">'+ic(s.icon,24)+'</span><div><p class="small">Accessible à</p><b>'+esc(s.who)+'</b></div></div>'+(s.steps.length?'<h2 class="h3">Comment faire</h2><ol class="steps">'+s.steps.map(function(x){return '<li><span>'+esc(x)+'</span></li>'}).join('')+'</ol>':'')+'</div>'+cta};
+};
+
+V.docs=function(){
+  return {html:head('Documents','Formulaires, règlements et guides.')+
+  noticeHtml('info','info','Les fichiers ne sont pas rattachés dans cette démonstration : seule la fiche du document s’ouvre.')+
+  '<div class="searchfield"><label class="sr" for="dq">Rechercher un document</label>'+ic('search',20)+'<input class="input" id="dq" type="search" placeholder="Rechercher un document…" value="'+esc(S.df.q)+'" autocomplete="off"></div>'+
+  '<div class="chips" id="dcats" role="group" aria-label="Filtrer par catégorie"></div><p class="small" id="dcount" aria-live="polite"></p><div class="stack" id="dlist"></div>',
+  mount:function(){$('#dq').addEventListener('input',function(e){S.df.q=e.target.value;listDocs()});listDocs()}};
+};
+function listDocs(){
+  var cats=['all'].concat(DOCS.map(function(d){return d.cat}).filter(function(v,i,a){return a.indexOf(v)===i}));
+  var c=$('#dcats');if(!c)return;
+  c.innerHTML=cats.map(function(k){return '<button class="chip" aria-pressed="'+(S.df.cat===k)+'" data-act="dcat" data-id="'+esc(k)+'">'+(k==='all'?'Tous':esc(k))+'</button>'}).join('');
+  var q=norm(S.df.q);
+  var l=DOCS.filter(function(d){return (S.df.cat==='all'||d.cat===S.df.cat)&&(!q||norm(d.title+' '+d.cat).indexOf(q)>-1)});
+  $('#dcount').textContent=l.length+' document'+(l.length>1?'s':'');
+  $('#dlist').innerHTML=l.length?l.map(function(d){
+    var lock=d.vis==='connecté'&&!can('student');
+    return '<div class="row docrow"><span class="sq sm t-blue">'+ic('file',20)+'</span><span class="txt"><b>'+esc(d.title)+'</b><span>'+esc(d.cat)+' · PDF · '+fmtDate(d.date,{day:'numeric',month:'short',year:'numeric'})+'</span></span>'+'<span class="dact">'+(lock?badge('Connexion requise','amber'):'')+'<button class="btn btn-secondary btn-sm" data-act="docopen" data-id="'+d.id+'" aria-label="Consulter '+esc(d.title)+'">Consulter</button><button class="iconbtn" data-act="docdl" data-id="'+d.id+'" aria-label="Télécharger '+esc(d.title)+'">'+ic('download',20)+'</button></span></div>';
+  }).join(''):(DOCS.length?stateCard({icon:'search',tone:'amber',title:'Aucun résultat',text:'Aucun document ne correspond. Modifiez votre recherche ou le filtre.',acts:[{l:'Réinitialiser',act:'dreset',p:1}]}):stateCard({icon:'file',title:'Aucun document',text:'Les documents publiés apparaîtront ici.'}));
+}
+
+function searchIndex(){
+  var out=[];
+  S.news.filter(function(n){return n.status==='published'}).forEach(function(n){out.push({k:'Actualité',t:n.title,x:n.summary+' '+n.body.map(function(b){return b.t==='ul'?b.x.join(' '):b.x}).join(' '),go:'article:'+n.id,i:'news',tone:CATS[n.cat].tone})});
+  DOCS.forEach(function(d){out.push({k:'Document',t:d.title,x:d.cat,go:'docs',i:'file',tone:'blue'})});
+  FAQ.forEach(function(f){out.push({k:'FAQ',t:f.q,x:f.a,go:'faq',i:'help',tone:'orange'})});
+  SERVICES.filter(function(s){return s.on}).forEach(function(s){out.push({k:'Service',t:s.title,x:s.desc,go:'service:'+s.id,i:s.icon,tone:s.tone})});
+  Object.keys(PAGES).forEach(function(id){var p=PAGES[id];out.push({k:'Information',t:p.title,x:p.intro+' '+p.secs.map(function(s){return s.h+' '+(s.p||'')}).join(' '),go:'page:'+id,i:p.icon,tone:p.tone})});
+  EVENTS.forEach(function(e){out.push({k:'Événement',t:e.title,x:e.desc+' '+e.loc,go:'events',i:'cal',tone:e.tone})});
+  return out;
+}
+V.search=function(){
+  return {html:head('Recherche','Dans les contenus publiés de l’application.')+
+  '<form class="searchfield" id="sf" role="search"><label class="sr" for="sq">Rechercher une information, un service</label>'+ic('search',20)+'<input class="input" id="sq" type="search" placeholder="Rechercher une information, un service…" autocomplete="off"></form>'+
+  '<div id="sres" aria-live="polite"></div>',
+  mount:function(){
+    var inp=$('#sq');inp.focus();
+    function run(){
+      var q=norm(inp.value.trim());var box=$('#sres');
+      if(q.length<2){box.innerHTML='<div class="stack"><p class="sub">Suggestions</p><div class="chips" style="flex-wrap:wrap;overflow:visible">'+['inscription','horaires','attestation','restauration','règlement'].map(function(s){return '<button type="button" class="chip" data-act="sugg" data-id="'+s+'">'+s+'</button>'}).join('')+'</div></div>';return}
+      var res=searchIndex().filter(function(r){return norm(r.t+' '+r.x).indexOf(q)>-1}).sort(function(a,b){return (norm(b.t).indexOf(q)>-1)-(norm(a.t).indexOf(q)>-1)}).slice(0,30);
+      if(!res.length){box.innerHTML=stateCard({icon:'search',tone:'amber',title:'Aucun résultat',text:'Rien ne correspond à « '+inp.value.trim()+' ». Essayez un mot plus court ou un autre terme.',acts:[{l:'Poser une question',go:'contact'}]});return}
+      box.innerHTML='<p class="small" style="margin-bottom:10px">'+res.length+' résultat'+(res.length>1?'s':'')+'</p><div class="stack">'+res.map(function(r){return row({title:r.t,desc:r.k,icon:r.i,tone:r.tone,go:r.go})}).join('')+'</div>';
+    }
+    inp.addEventListener('input',run);$('#sf').addEventListener('submit',function(e){e.preventDefault();run()});
+    S.runSearch=function(v){inp.value=v;run();inp.focus()};run();
+  }};
+};
+
+V.notifs=function(){
+  var n=S.notifs.filter(function(x){return S.prefs[x.type]});
+  var unread=n.filter(function(x){return !x.read}).length;
+  return {html:head('Notifications',unread?unread+' non lue'+(unread>1?'s':''):'Tout est à jour.')+
+  '<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-secondary btn-sm" data-act="readall"'+(unread?'':' disabled')+'>'+ic('check',16)+' Tout marquer comme lu</button><button class="btn btn-secondary btn-sm" data-go="settings">'+ic('sliders',16)+' Préférences</button></div>'+
+  noticeHtml('info','info','Notifications d’exemple. Aucune donnée personnelle sensible n’est affichée dans une notification.')+
+  '<div class="stack">'+(n.length?n.map(function(x){var t=NTYPES[x.type];return row({title:x.title,desc:x.body,icon:t.i,tone:t.t,act:'opennotif',id:x.id,badge:x.read?'':badge('Non lue','blue')})}).join(''):stateCard({icon:'bell',title:'Aucune notification',text:'Vous serez prévenu ici des nouveautés qui vous concernent.'}))+'</div>'};
+};
+
+V.login=function(){
+  return {html:head('Connexion','Accédez aux contenus et services réservés.')+
+  noticeHtml('warn','alert','<b>Aucune authentification réelle.</b> Cette démonstration n’est reliée à aucun serveur. Choisissez un profil pour explorer les niveaux d’accès : rien n’est enregistré.')+
+  '<section class="stack"><h2 class="h2">Explorer avec un profil d’exemple</h2>'+
+  row({title:'Élève ou étudiant',desc:'Contenus autorisés, préférences, contact des services.',icon:'user',tone:'blue',act:'loginas',id:'student'})+
+  row({title:'Personnel',desc:'Fonctions liées à un rôle de personnel.',icon:'users',tone:'green',act:'loginas',id:'staff'})+
+  row({title:'Administrateur',desc:'Gestion des contenus et des utilisateurs.',icon:'shield',tone:'purple',act:'loginas',id:'admin'})+'</section>'+
+  '<section class="stack"><h2 class="h2">Connexion de l’établissement</h2><button class="btn btn-primary" data-act="sso">'+ic('lock',18)+' Connexion institutionnelle</button><button class="btn btn-ghost" data-act="forgot" style="align-self:flex-start">Compte ou mot de passe oublié ?</button></section>'};
+};
+V.profile=function(){
+  var u=S.user;
+  var unread=S.notifs.filter(function(n){return !n.read}).length;
+  if(!u)return {html:head('Profil','',{noback:true})+'<div class="card pad stack"><div style="display:flex;gap:14px;align-items:center"><span class="avatar" style="cursor:default">'+ic('user',22)+'</span><div><b>Vous naviguez en visiteur</b><p class="sub">Les informations publiques sont accessibles sans compte.</p></div></div><button class="btn btn-primary" data-go="login">Se connecter</button></div>'+
+   '<div class="stack">'+row({title:'Notifications',icon:'bell',tone:'amber',go:'notifs',badge:unread?badge(unread+' non lues','blue'):''})+row({title:'Paramètres',desc:'Apparence, notifications.',icon:'sliders',tone:'slate',go:'settings'})+row({title:'Contact',icon:'mail',tone:'purple',go:'contact'})+row({title:'Foire aux questions',icon:'help',tone:'orange',go:'faq'})+'</div>'};
+  return {html:head('Profil','',{noback:true})+'<div class="card pad" style="display:flex;gap:14px;align-items:center"><span class="avatar" style="cursor:default;width:56px;height:56px;font-size:1.25rem">'+esc(u.first.charAt(0))+'</span><div style="min-width:0"><b>'+esc(u.name)+'</b><div style="margin-top:4px;display:flex;gap:6px;flex-wrap:wrap">'+badge(ROLES[u.role],'blue')+badge('Profil d’exemple','','line')+'</div></div></div>'+
+  '<div class="stack">'+row({title:'Notifications',icon:'bell',tone:'amber',go:'notifs',badge:unread?badge(unread+' non lues','blue'):''})+row({title:'Paramètres et préférences',icon:'sliders',tone:'slate',go:'settings'})+row({title:'Contacter un service',icon:'mail',tone:'purple',go:'contact'})+(u.role==='admin'?row({title:'Administration',desc:'Gérer actualités, annonces et utilisateurs.',icon:'shield',tone:'green',go:'admin'}):'')+row({title:'Se déconnecter',icon:'logout',tone:'pink',act:'logout',nochev:true})+'</div>'};
+};
+V.settings=function(){
+  var st=S.settings;
+  function sw(id,label,on){return '<label class="switch"><span>'+label+'</span><input type="checkbox" role="switch" id="'+id+'" '+(on?'checked':'')+'><span class="track"></span></label>'}
+  return {html:head('Paramètres')+
+  '<section class="card pad stack"><h2 class="h3">Apparence</h2><div class="field"><span class="lbl">Thème</span><div class="seg" role="group" aria-label="Thème">'+[['auto','Automatique'],['light','Clair'],['dark','Sombre']].map(function(t){return '<button type="button" data-act="theme" data-id="'+t[0]+'" aria-pressed="'+(st.theme===t[0])+'">'+t[1]+'</button>'}).join('')+'</div></div><div class="field"><span class="lbl">Taille du texte</span><div class="seg" role="group" aria-label="Taille du texte">'+[[1,'Normale'],[1.125,'Grande'],[1.25,'Très grande']].map(function(t){return '<button type="button" data-act="size" data-id="'+t[0]+'" aria-pressed="'+(st.size===t[0])+'">'+t[1]+'</button>'}).join('')+'</div></div><div class="field"><span class="lbl">Police</span><div class="seg" role="group" aria-label="Police">'+FONTS.map(function(f){return '<button type="button" data-act="cfg" data-k="font" data-v="'+f[0]+'" aria-pressed="'+(st.font===f[0])+'">'+f[1]+'</button>'}).join('')+'</div></div>'+sw('s-reduce','Réduire les animations',st.reduce)+sw('s-glass','Effet Liquid Glass'+(IS_IOS?' (recommandé sur iOS)':''),st.glass)+'</section>'+
+  '<section class="card pad stack"><h2 class="h3">Notifications</h2>'+Object.keys(NTYPES).map(function(k){return sw('p-'+k,NTYPES[k].l,S.prefs[k])}).join('')+'<button class="btn btn-secondary" data-act="push">'+ic('bell',18)+' Activer les notifications push</button><p class="small">L’autorisation est demandée uniquement lorsque vous appuyez sur ce bouton. Aucune donnée personnelle sensible n’apparaît dans une notification.</p></section>'+
+  '<section class="card pad stack"><h2 class="h3">Données et confidentialité</h2><p class="sub">Cette démonstration ne collecte et n’enregistre aucune donnée personnelle. Une version déployée devra respecter le RGPD, avec des règles de conservation définies par l’établissement.</p></section>'+
+  '<div class="stack">'+row({title:'Refaire la configuration',desc:'Liquid Glass, écriture, thème.',icon:'sliders',tone:'blue',go:'setup:settings'})+row({title:'Guide de style et états',desc:'Composants, couleurs et écrans d’état.',icon:'eye',tone:'purple',go:'styleguide'})+'</div>',
+  mount:function(){
+    $('#s-reduce').addEventListener('change',function(e){S.settings.reduce=e.target.checked;applySettings();saveSettings()});
+    $('#s-glass').addEventListener('change',function(e){S.settings.glass=e.target.checked;applySettings();saveSettings()});
+    Object.keys(NTYPES).forEach(function(k){$('#p-'+k).addEventListener('change',function(e){S.prefs[k]=e.target.checked})});
+  }};
+};
+
+V.contact=function(p){
+  var cats=['Demande de renseignements','Scolarité','Inscription','Problème matériel','Assistance technique','Autre'];
+  var pre=p&&p.cat?p.cat:'';
+  return {html:head('Contact','Écrivez à un service de l’établissement.')+
+  noticeHtml('warn','alert','<b>Aucun serveur connecté.</b> Dans cette démonstration, le message n’est pas transmis. Il est seulement vérifié et préparé.')+
+  '<form class="card pad stack" id="cf" novalidate>'+
+   '<div class="field"><label for="c-sub">Sujet</label><input class="input" id="c-sub" maxlength="120" autocomplete="off" aria-describedby="e-sub"><div id="e-sub"></div></div>'+
+   '<div class="field"><label for="c-cat">Catégorie</label><select class="select" id="c-cat" aria-describedby="e-cat"><option value="">Choisir une catégorie</option>'+cats.map(function(c){return '<option'+(c===pre?' selected':'')+'>'+c+'</option>'}).join('')+'</select><div id="e-cat"></div></div>'+
+   '<div class="field"><label for="c-msg">Message</label><textarea class="textarea" id="c-msg" maxlength="2000" aria-describedby="e-msg c-cnt"></textarea><div style="display:flex;justify-content:space-between;gap:10px"><div id="e-msg"></div><span class="small num" id="c-cnt">0 / 2000</span></div></div>'+
+   '<div class="field"><label for="c-file">Pièce jointe (facultative)</label><input class="input" id="c-file" type="file" accept=".pdf,.png,.jpg,.jpeg" aria-describedby="e-file"><span class="small">PDF, PNG ou JPG · 5 Mo maximum</span><div id="e-file"></div></div>'+
+   '<div class="hp" aria-hidden="true"><label for="c-web">Ne pas remplir</label><input id="c-web" tabindex="-1" autocomplete="off"></div>'+
+   '<button class="btn btn-primary" id="c-go" type="submit">Envoyer le message</button></form><div id="c-res"></div>',
+  mount:function(){
+    var f=$('#cf');
+    $('#c-msg').addEventListener('input',function(e){$('#c-cnt').textContent=e.target.value.length+' / 2000'});
+    function setErr(id,fld,msg){var h=$('#'+id);h.innerHTML=msg?'<p class="err-msg" role="alert">'+ic('alert',16)+esc(msg)+'</p>':'';$('#'+fld).setAttribute('aria-invalid',msg?'true':'false')}
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var sub=$('#c-sub').value.trim(),cat=$('#c-cat').value,msg=$('#c-msg').value.trim(),file=$('#c-file').files[0];
+      var bad=null;
+      setErr('e-sub','c-sub',sub.length<3?'Indiquez un sujet d’au moins 3 caractères.':'');if(sub.length<3)bad=bad||'c-sub';
+      setErr('e-cat','c-cat',!cat?'Choisissez une catégorie.':'');if(!cat)bad=bad||'c-cat';
+      setErr('e-msg','c-msg',msg.length<10?'Décrivez votre demande en au moins 10 caractères.':'');if(msg.length<10)bad=bad||'c-msg';
+      var fe='';if(file){if(file.size>5*1024*1024)fe='Ce fichier dépasse 5 Mo.';else if(!/\.(pdf|png|jpe?g)$/i.test(file.name))fe='Format non accepté. Utilisez PDF, PNG ou JPG.'}
+      setErr('e-file','c-file',fe);if(fe)bad=bad||'c-file';
+      if(bad){$('#'+bad).focus();return}
+      if($('#c-web').value){return}
+      if(Date.now()-S.lastSubmit<15000){$('#c-res').innerHTML=noticeHtml('warn','alert','Merci d’attendre quelques secondes avant un nouvel envoi.');return}
+      S.lastSubmit=Date.now();
+      var btn=$('#c-go');btn.disabled=true;btn.innerHTML='<span class="spin"></span> Vérification…';
+      setTimeout(function(){
+        btn.disabled=false;btn.textContent='Envoyer le message';
+        $('#c-res').innerHTML='<div class="card pad stack">'+noticeHtml('warn','alert','<b>Message non envoyé.</b> Aucun service n’est connecté à cette démonstration. Votre message est valide et prêt à être transmis par un service sécurisé une fois celui-ci en place.')+'<dl class="kv"><div><dt>Sujet</dt><dd>'+esc(sub)+'</dd></div><div><dt>Catégorie</dt><dd>'+esc(cat)+'</dd></div>'+(file?'<div><dt>Pièce jointe</dt><dd>'+esc(file.name)+'</dd></div>':'')+'</dl><button class="btn btn-secondary btn-sm" data-act="copymsg" style="align-self:flex-start">Copier le message</button></div>';
+        S.draft='Sujet : '+sub+'\nCatégorie : '+cat+'\n\n'+msg;
+        $('#c-res').scrollIntoView({behavior:'smooth',block:'center'});
+      },600);
+    });
+  }};
+};
+V.faq=function(){
+  var cats=['Tous'].concat(FAQ.map(function(f){return f.c}).filter(function(v,i,a){return a.indexOf(v)===i}));
+  var l=FAQ.filter(function(f){return S.faqCat==='Tous'||f.c===S.faqCat});
+  return {html:head('Foire aux questions','Les réponses aux questions courantes.')+
+  '<div class="chips" role="group" aria-label="Catégories">'+cats.map(function(c){return '<button class="chip" aria-pressed="'+(S.faqCat===c)+'" data-act="faqcat" data-id="'+c+'">'+c+'</button>'}).join('')+'</div>'+
+  '<div class="stack">'+l.map(function(f,i){return '<div class="card acc"><button type="button" aria-expanded="false" aria-controls="fa'+i+'"><span>'+esc(f.q)+'</span>'+ic('chev',20)+'</button><div class="ans" id="fa'+i+'" hidden>'+esc(f.a)+'</div></div>'}).join('')+'</div>'+
+  '<div class="card pad stack"><b>Vous n’avez pas trouvé votre réponse ?</b><button class="btn btn-secondary btn-sm" data-go="contact" style="align-self:flex-start">Écrire à un service</button></div>',
+  mount:function(){$$('.acc>button').forEach(function(b){b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!o);$('#'+b.getAttribute('aria-controls')).hidden=o})})}};
+};
+
+/* administration (état conservé uniquement dans la session) */
+function logAct(t){S.log.unshift({t:new Date(),who:S.user?S.user.name:'—',x:t})}
+V.admin=function(){
+  var g=guard('admin');if(g)return g;
+  var tabs=[['news','Actualités'],['anns','Annonces'],['users','Utilisateurs'],['log','Journal']];
+  var body='';
+  if(S.admTab==='news'){
+    body='<button class="btn btn-primary btn-sm" data-act="admnew" style="align-self:flex-start">'+ic('plus',16)+' Nouvelle actualité</button><div class="stack">'+(S.news.length?S.news.map(function(n){
+      var st={published:['Publié','ok'],draft:['Brouillon','warn'],archived:['Archivé','line']}[n.status];
+      return '<div class="card pad stack"><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'+badge(st[0],'',st[1])+badge(CATS[n.cat].name,CATS[n.cat].tone)+(n.featured?badge('À la une','blue'):'')+'</div><b>'+esc(n.title)+'</b><div style="display:flex;gap:8px;flex-wrap:wrap">'+
+      '<button class="btn btn-secondary btn-sm" data-act="admfeat" data-id="'+n.id+'">'+ic('mega',16)+' '+(n.featured?'Retirer de la une':'Mettre à la une')+'</button>'+(n.status==='published'?'<button class="btn btn-secondary btn-sm" data-act="admunpub" data-id="'+n.id+'">Dépublier</button>':'<button class="btn btn-primary btn-sm" data-act="admpub" data-id="'+n.id+'">Publier</button>')+
+      '<button class="btn btn-secondary btn-sm" data-act="admedit" data-id="'+n.id+'">'+ic('edit',16)+' Modifier</button>'+(n.status!=='archived'?'<button class="btn btn-secondary btn-sm" data-act="admarch" data-id="'+n.id+'">Archiver</button>':'')+'<button class="btn btn-secondary btn-sm" data-act="admdel" data-id="'+n.id+'" style="color:var(--err)">'+ic('trash',16)+' Supprimer</button></div></div>';
+    }).join(''):stateCard({icon:'news',title:'Aucune actualité',text:'Créez une première actualité.'}))+'</div>';
+  }else if(S.admTab==='anns'){
+    body='<button class="btn btn-primary btn-sm" data-act="admannnew" style="align-self:flex-start">'+ic('plus',16)+' Nouvelle annonce</button><div class="stack">'+(S.anns.length?S.anns.map(function(a){
+      var lbl={published:['Publiée','ok'],scheduled:['Programmée','warn'],archived:['Archivée','line']}[a.status];
+      return '<div class="card pad stack"><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'+badge(lbl[0],'',lbl[1])+badge({urgent:'Urgent',important:'Important',info:'Info'}[a.level],'','line')+(a.featured?badge('À la une','blue'):'')+'</div><b>'+esc(a.title)+'</b><p class="small">Visible du '+fmtDate(a.start,{day:'numeric',month:'short',year:'numeric'})+' au '+fmtDate(a.end,{day:'numeric',month:'short',year:'numeric'})+'</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-secondary btn-sm" data-act="admannfeat" data-id="'+a.id+'">'+ic('mega',16)+' '+(a.featured?'Retirer de la une':'Mettre à la une')+'</button>'+(a.status!=='archived'?'<button class="btn btn-secondary btn-sm" data-act="admannarch" data-id="'+a.id+'">Archiver</button>':'<button class="btn btn-secondary btn-sm" data-act="admannrest" data-id="'+a.id+'">Rétablir</button>')+'</div></div>';
+    }).join(''):stateCard({icon:'mega',title:'Aucune annonce',text:'Publiez une annonce prioritaire.'}))+'</div>';
+  }else if(S.admTab==='users'){
+    body='<div class="card tablewrap"><table><thead><tr><th>Utilisateur</th><th>Rôle</th><th>État</th></tr></thead><tbody>'+S.adminUsers.map(function(u){
+      var self=S.user&&u.name===S.user.name;
+      return '<tr><td>'+esc(u.name)+(self?' <span class="small">(vous)</span>':'')+'</td><td><label class="sr" for="r-'+u.id+'">Rôle de '+esc(u.name)+'</label><select class="select" id="r-'+u.id+'" data-uid="'+u.id+'" style="min-height:40px;padding:6px 10px" '+(self?'disabled':'')+'>'+['student','staff','admin'].map(function(r){return '<option value="'+r+'"'+(u.role===r?' selected':'')+'>'+ROLES[r]+'</option>'}).join('')+'</select></td><td><button class="btn btn-secondary btn-sm" data-act="admuser" data-id="'+u.id+'" '+(self?'disabled':'')+'>'+(u.on?'Désactiver':'Réactiver')+'</button></td></tr>';
+    }).join('')+'</tbody></table></div><p class="small">Un administrateur ne peut pas modifier ni désactiver son propre compte. Utilisateurs fictifs.</p>';
+  }else{
+    body=(S.log.length?'<div class="stack">'+S.log.map(function(l){return '<div class="card pad"><b>'+esc(l.x)+'</b><p class="small">'+l.t.toLocaleString('fr-FR',{dateStyle:'medium',timeStyle:'short'})+' · '+esc(l.who)+'</p></div>'}).join('')+'</div>':stateCard({icon:'list',tone:'slate',title:'Journal vide',text:'Les actions administratives de cette session apparaîtront ici.'}))+'<p class="small">Durée de conservation du journal : à définir avec le responsable des données de l’établissement.</p>';
+  }
+  return {html:head('Administration','Gestion des contenus et des accès.')+
+   noticeHtml('warn','alert','<b>Mode démonstration.</b> Les modifications ne sont conservées que pendant cette session et ne sont envoyées nulle part.')+
+   '<div class="chips" role="group" aria-label="Sections">'+tabs.map(function(t){return '<button class="chip" data-act="admtab" data-id="'+t[0]+'" aria-pressed="'+(S.admTab===t[0])+'">'+t[1]+'</button>'}).join('')+'</div><div class="stack">'+body+'</div>',
+   mount:function(){$$('select[data-uid]').forEach(function(s){s.addEventListener('change',function(){var u=S.adminUsers.filter(function(x){return x.id===s.dataset.uid})[0];u.role=s.value;logAct('Rôle de '+u.name+' changé en « '+ROLES[u.role]+' »');toast('Rôle mis à jour (démonstration)')})})}};
+};
+function newsForm(n){
+  return '<div class="field"><label for="f-t">Titre</label><input class="input" id="f-t" maxlength="120" value="'+(n?esc(n.title):'')+'"></div><div class="field"><label for="f-c">Catégorie</label><select class="select" id="f-c">'+Object.keys(CATS).map(function(k){return '<option value="'+k+'"'+(n&&n.cat===k?' selected':'')+'>'+CATS[k].name+'</option>'}).join('')+'</select></div><div class="field"><label for="f-s">Résumé</label><textarea class="textarea" id="f-s" style="min-height:90px" maxlength="240">'+(n?esc(n.summary):'')+'</textarea></div><div class="field"><label for="f-b">Texte</label><textarea class="textarea" id="f-b" style="min-height:120px">'+(n?esc(n.body.filter(function(b){return b.t==='p'}).map(function(b){return b.x}).join('\n\n')):'')+'</textarea></div><label class="switch"><span>Mettre à la une</span><input type="checkbox" role="switch" id="f-f"'+(n&&n.featured?' checked':'')+'><span class="track"></span></label><p class="err-msg" id="f-e" role="alert"></p>';
+}
+function saveNews(dlg,n){
+  var t=$('#f-t',dlg).value.trim(),s=$('#f-s',dlg).value.trim(),b=$('#f-b',dlg).value.trim();
+  if(t.length<3||s.length<3){$('#f-e',dlg).textContent='Renseignez au moins un titre et un résumé.';return false}
+  var body=(b||s).split(/\n{2,}/).map(function(x){return {t:'p',x:x}});
+  if(n){n.title=t;n.summary=s;n.cat=$('#f-c',dlg).value;n.featured=$('#f-f',dlg).checked;n.body=body;logAct('Actualité modifiée : '+t)}
+  else{S.news.unshift({id:'n'+Date.now(),title:t,summary:s,cat:$('#f-c',dlg).value,date:TODAY_ISO,author:S.user.name,featured:$('#f-f',dlg).checked,status:'draft',body:body,files:[],links:[]});logAct('Actualité créée (brouillon) : '+t)}
+  render();toast(n?'Actualité modifiée':'Brouillon créé');
+}
+
+V.styleguide=function(){
+  var sw=[['Bleu marine','#173B70','--brand'],['Bleu institutionnel','#2563EB','--accent'],['Fond','#F8FAFC','--bg'],['Carte','#FFFFFF','--card'],['Texte','#111827','--fg'],['Texte secondaire','#64748B','--muted'],['Bordure','#E2E8F0','--line'],['Succès','#16A34A','--ok'],['Avertissement','#F59E0B','--warn'],['Erreur','#DC2626','--err']];
+  return {html:head('Guide de style','Le système de design de l’application.')+
+  '<section class="card pad stack"><h2 class="h3">Couleurs</h2><div class="swatches">'+sw.map(function(s){return '<div class="sw"><i style="background:var('+s[2]+')"></i><div><b>'+s[0]+'</b><br><span class="num">'+s[1]+'</span></div></div>'}).join('')+'</div><div class="swatches">'+['blue','green','purple','orange','pink','teal','amber','slate'].map(function(t){return '<div class="sw t-'+t+'"><i style="background:var(--tb)"></i><div style="color:var(--tf);font-weight:600">'+t+'</div></div>'}).join('')+'</div></section>'+
+  '<section class="card pad stack"><h2 class="h3">Typographie · Inter</h2><p class="h1">Titre de page</p><p class="h2">Titre de section</p><p class="h3">Sous-titre</p><p>Texte courant, confortable à lire sur mobile.</p><p class="sub">Texte secondaire</p></section>'+
+  '<section class="card pad stack"><h2 class="h3">Boutons</h2><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary">Principal</button><button class="btn btn-secondary">Secondaire</button><button class="btn btn-ghost">Discret</button><button class="btn btn-danger">Supprimer</button><button class="btn btn-primary" disabled>Désactivé</button></div></section>'+
+  '<section class="card pad stack"><h2 class="h3">Badges et alertes</h2><div style="display:flex;gap:8px;flex-wrap:wrap">'+badge('Actualité','blue')+badge('Événement','purple')+badge('Publié','','ok')+badge('Brouillon','','warn')+badge('Erreur','','err')+badge('Neutre','','line')+'</div>'+noticeHtml('info','info','Message d’information.')+noticeHtml('ok','check','Action réussie.')+noticeHtml('warn','alert','Attention à vérifier.')+noticeHtml('err','alert','Une erreur est survenue.')+'</section>'+
+  '<section class="card pad stack"><h2 class="h3">Formulaire</h2><div class="field"><label for="g1">Champ de texte</label><input class="input" id="g1" placeholder="Saisir…"></div><div class="field"><label for="g2">Champ en erreur</label><input class="input" id="g2" aria-invalid="true" aria-describedby="g2e"><p class="err-msg" id="g2e">'+ic('alert',16)+'Message d’erreur explicite.</p></div></section>'+
+  '<section class="card pad stack"><h2 class="h3">Chargement</h2>'+skeleton(1)+'</section>'+
+  '<section class="stack"><h2 class="h2">Écrans d’état</h2>'+
+   row({title:'Aucun résultat',icon:'search',tone:'amber',go:'state:noresult'})+row({title:'Hors connexion',icon:'wifioff',tone:'slate',go:'state:offline'})+row({title:'Erreur serveur',icon:'server',tone:'red',go:'state:server'})+row({title:'Accès refusé',icon:'shield',tone:'red',go:'state:denied'})+row({title:'Session expirée',icon:'lock',tone:'amber',go:'state:expired'})+row({title:'Aucun document',icon:'file',tone:'blue',go:'state:nodocs'})+row({title:'Aucune actualité',icon:'news',tone:'blue',go:'state:nonews'})+
+   '<button class="btn btn-secondary" data-act="demomodal">Ouvrir une fenêtre modale</button></section>'+
+  '<section class="card pad stack"><h2 class="h3">Icônes</h2><div class="icons">'+Object.keys(ICONS).map(function(k){return '<div>'+ic(k,24)+k+'</div>'}).join('')+'</div></section>'};
+};
+var STATES={
+ noresult:{icon:'search',tone:'amber',title:'Aucun résultat',text:'Rien ne correspond à votre recherche. Essayez d’autres mots.',acts:[{l:'Nouvelle recherche',go:'search',p:1}]},
+ offline:{icon:'wifioff',tone:'slate',title:'Vous êtes hors connexion',text:'Les contenus publics déjà chargés restent consultables. Reconnectez-vous pour les mettre à jour.',acts:[{l:'Réessayer',act:'retry',p:1}]},
+ server:{icon:'server',tone:'red',title:'Le service ne répond pas',text:'Le serveur rencontre un problème. Ce n’est pas de votre fait. Réessayez dans quelques minutes.',acts:[{l:'Réessayer',act:'retry',p:1},{l:'Accueil',go:'home'}]},
+ denied:{icon:'shield',tone:'red',title:'Accès refusé',text:'Votre rôle ne permet pas d’ouvrir cette page. Contactez un administrateur si besoin.',acts:[{l:'Accueil',go:'home',p:1}]},
+ expired:{icon:'lock',tone:'amber',title:'Votre session a expiré',text:'Pour votre sécurité, vous avez été déconnecté. Reconnectez-vous pour continuer.',acts:[{l:'Se connecter',go:'login',p:1}]},
+ nodocs:{icon:'file',tone:'blue',title:'Aucun document',text:'Les documents publiés apparaîtront ici.'},
+ nonews:{icon:'news',tone:'blue',title:'Aucune actualité',text:'Les actualités publiées apparaîtront ici.'}
+};
+V.state=function(p){var s=STATES[p.id]||STATES.server;return {html:head('État de l’application')+stateCard(s)}};
+
+
+/* ===== Refonte Campus Rosa Parks / vues UI 2026 ===== */
+var ORIGINAL_HOME_VIEW=V.home;
+var NAV_DESKTOP=[
+ ['home','Accueil','home'],['info','Informations','info'],['schooling','Scolarité','cap'],
+ ['campus','Vie de campus','building'],['services','Services','grid'],
+ ['docs','Ressources','book'],['news','Actualités','mega']
+];
+TABS=[['home','Accueil','home'],['info','Informations','cal'],['services','Services','grid'],['profile','Profil','user']];
+function activeNavKey(){
+ if(S.route==='page')return PAGES[S.params.id]&&PAGES[S.params.id].g==='campus'?'campus':(PAGES[S.params.id]&&PAGES[S.params.id].g==='school'?'schooling':'info');
+ if(['schooling','campus','docs','news','profile','services','home','info'].indexOf(S.route)>=0)return S.route;
+ if(S.route==='article')return 'news';
+ if(S.route==='service'||S.route==='faq'||S.route==='contact')return 'services';
+ if(S.route==='search')return 'home';
+ return 'profile';
+}
+function renderNav(){
+ var current=activeNavKey(),curMobile=({'schooling':'info','campus':'info','docs':'services','news':'info'})[current]||current;
+ var unread=S.notifs.filter(function(n){return !n.read}).length;
+ $('#tabbar').innerHTML=TABS.map(function(t){return '<button class="tab" data-tab="'+t[0]+'" '+(curMobile===t[0]?'aria-current="page"':'')+'><span class="w">'+ic(t[2],21)+'</span><span>'+t[1]+'</span></button>'}).join('');
+ var nav= NAV_DESKTOP.map(function(t){return '<button class="tab" data-tab="'+t[0]+'" '+(current===t[0]?'aria-current="page"':'')+'><span class="w">'+ic(t[2],20)+'</span><span>'+t[1]+'</span></button>'}).join('');
+ $('#side').innerHTML='<div class="brand">'+newLogo(31)+'<span>Campus Rosa Parks</span></div>'+nav+'<div class="side-bottom">'+
+ '<button class="tab" data-go="notifs">'+ic('bell',19)+' Notifications'+(unread?' · '+unread:'')+'</button>'+
+ '<button class="tab" data-tab="profile" '+(current==='profile'?'aria-current="page"':'')+'>'+ic('user',19)+' Mon profil</button>'+
+ '<button class="tab" data-go="settings">'+ic('sliders',19)+' Paramètres</button></div>';
+ var dt=$('#desktop-topbar');if(dt){dt.innerHTML='<button class="searchbtn" data-go="search">'+ic('search',17)+' Rechercher une information, un service…</button><div class="tools">'+
+ '<button class="iconbtn" data-go="notifs" aria-label="Notifications">'+ic('bell',21)+(unread?'<span class="dot">'+unread+'</span>':'')+'</button>'+
+ '<button class="avatar" data-tab="profile">'+(S.user?esc(S.user.first[0]):'É')+'</button><button type="button" class="user-meta" style="border:0;background:transparent;text-align:left;cursor:pointer" data-tab="profile"><span class="username">'+(S.user?esc(S.user.first):'Étudiant·e')+'</span><br><span class="userrole">Campus Rosa Parks</span></button></div>'}
+}
+function newLogo(sz){return '<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 64 64" aria-label="Logo Campus Rosa Parks" role="img"><path d="M6 7h13c13 0 19 11 19 23v25H25C13 55 6 49 6 36z" fill="#173967"/><path d="M41 27c12-8 20-3 20 8v20H47c-4 0-6-3-6-7z" fill="#ff6d59"/></svg>'}
+function gridTile(x){return '<button class="feature-tile" data-go="'+x.to+'"><span class="tile-art t-'+x.t+'">'+ic(x.i,28)+'</span><span><h3>'+esc(x.title)+'</h3><p>'+esc(x.desc)+'</p></span></button>'}
+function linkTile(x){return '<button class="link-card" data-go="'+x.to+'"><span class="sq t-'+x.t+'">'+ic(x.i,23)+'</span><span class="linkcopy"><b>'+esc(x.title)+'</b><small>'+esc(x.desc)+'</small></span>'+ic('chev',18,'chev')+'</button>'}
+function sectionTitle(title,more){return '<div class="sec-h"><h2 class="h2">'+title+'</h2>'+(more?'<button class="btn btn-ghost btn-sm" data-go="'+more.to+'">'+esc(more.txt)+' '+ic('chev',15)+'</button>':'')+'</div>'}
+function pageHeader(title,sub,back){return '<header class="pagehead">'+(back===false?'':'<button class="back" data-act="back">'+ic('back',19)+'</button>')+'<h1 class="h1" tabindex="-1">'+esc(title)+'</h1>'+(sub?'<p class="sub">'+esc(sub)+'</p>':'')+'</header>'}
+function demoLine(){return '<p class="demo-inline">'+ic('info',15)+' Démonstration : les informations officielles restent à connecter.</p>'}
+V.welcome=function(){return {bare:true,html:'<section class="welcome-new"><span class="wash a"></span><span class="wash b"></span><span class="wash c"></span><span class="wash d"></span><div class="inner">'+newLogo(70)+'<h1 class="wordmark"><span>Campus</span><strong>Rosa Parks</strong></h1><p class="headline">Toute l’information de votre scolarité, au même endroit.</p><div class="actions"><button class="btn btn-primary btn-block" data-act="discover">Commencer '+ic('chev',19)+'</button><button class="btn btn-secondary btn-block" data-go="login">Se connecter</button></div><p class="foot">Découvrez votre campus et ses services</p></div></section>'}}
+V.login=function(){return {bare:true,html:'<div class="login-new"><div class="login-grid"><div class="login-promo">'+newLogo(70)+'<h2><span>Campus</span>Rosa Parks</h2><p>Votre scolarité, au plus près de vous.</p></div><div class="login-box"><button class="back" data-act="back">'+ic('back',18)+' Retour</button><div><h1>Connexion</h1><p class="sub">Accédez à votre espace Campus Rosa Parks.</p></div><div class="seg" role="group" aria-label="Type de connexion"><button id="role-student" type="button" data-act="rolepick" data-id="student" aria-pressed="true">Étudiant·e</button><button id="role-staff" type="button" data-act="rolepick" data-id="staff" aria-pressed="false">Personnel</button></div><form id="login-form" class="stack"><div class="field"><label for="login-id">Identifiant</label><input class="input" id="login-id" autocomplete="username" placeholder="ex. prenom.nom" required></div><div class="field"><label for="login-pw">Mot de passe</label><input class="input" id="login-pw" type="password" autocomplete="current-password" placeholder="Votre mot de passe" required></div><div class="login-check"><label><input type="checkbox" id="login-remember"> Se souvenir de moi</label><button type="button" class="muted-link" data-act="forgot">Mot de passe oublié ?</button></div><button type="submit" class="btn btn-primary btn-block">Se connecter</button></form><p class="small" style="text-align:center">ou</p><button class="btn btn-secondary btn-block" data-act="sso">'+ic('building',18)+' Se connecter avec l’ENT</button><div class="demo-access"><p><strong>Mode découverte :</strong> aucune connexion réelle n’est disponible dans cette version. Essayez l’application sans compte :</p><div class="demo-roles"><button class="btn btn-secondary btn-sm" data-act="loginas" data-id="student">Élève (démo)</button><button class="btn btn-secondary btn-sm" data-act="loginas" data-id="staff">Personnel (démo)</button><button class="btn btn-secondary btn-sm" data-act="loginas" data-id="admin">Admin (démo)</button></div></div></div></div></div>',mount:function(){var form=$('#login-form');if(form)form.addEventListener('submit',function(e){e.preventDefault();openModal({title:'Connexion non activée',body:'<p>Cette version est une démonstration locale. Aucun serveur d’authentification n’est connecté et votre mot de passe n’est pas envoyé.</p><p>Vous pouvez utiliser un des profils de démonstration ci-dessous le formulaire.</p>'})})}}}
+
+V.home=function(){
+ var original=ORIGINAL_HOME_VIEW();
+ if(!S.homeReady)return original;
+ // Copie exacte du HTML « À la une » généré par la version précédente.
+ var mark='<section class="stack"><div class="sec-h"><h2 class="h2">À la une</h2>';
+ var start=original.html.indexOf(mark);var end=start<0?-1:original.html.indexOf('</section>',start)+10;
+ var featured=start>=0&&end>start?original.html.substring(start,end):'';
+ var user=S.user,unread=S.notifs.filter(function(n){return !n.read}).length;
+ var primary=[
+  {title:'Scolarité',desc:'Toutes les infos sur votre parcours',i:'cap',t:'blue',to:'schooling'},
+  {title:'Vie de campus',desc:'Découvrez les services et lieux de vie',i:'building',t:'orange',to:'campus'},
+  {title:'Ressources',desc:'Documents, guides et outils utiles',i:'file',t:'purple',to:'docs'},
+  {title:'Actualités',desc:'Les dernières informations',i:'mega',t:'teal',to:'news'}
+ ];
+ var header='<header class="portal-top"><div><p class="eyebrow">Bonjour,</p><h1 class="hello-title" tabindex="-1">'+(user?esc(user.first):'Étudiant·e')+' 👋</h1><p class="micro">Campus Rosa Parks</p></div><div class="top-icons"><button class="iconbtn" data-go="notifs" aria-label="Notifications">'+ic('bell',20)+(unread?'<span class="dot">'+unread+'</span>':'')+'</button></div></header>';
+ var q='<button class="searchbtn" data-go="search">'+ic('search',19)+' <span>Rechercher une information, un service…</span></button>';
+ var tiles='<section class="portal-grid home-shortcuts" aria-label="Rubriques du campus">'+primary.map(gridTile).join('')+'</section>';
+ var news=featured?'<div class="featured-preserved">'+featured+'</div>':'';
+ var access='<section class="stack">'+sectionTitle('Accès rapides')+'<div class="link-grid">'+[
+ {title:'Inscription administrative',desc:'Modalités et démarches',i:'file',t:'blue',to:'page:inscriptions'},
+ {title:'Contact et assistance',desc:'Obtenir de l’aide',i:'help',t:'purple',to:'contact'},
+ {title:'Plan du campus',desc:'Accès et transports',i:'pin',t:'orange',to:'page:acces'},
+ {title:'Documents utiles',desc:'Formulaires et guides',i:'book',t:'green',to:'docs'}
+ ].map(linkTile).join('')+'</div></section>';
+ var ann='<section class="stack">'+sectionTitle('Annonces importantes',{txt:'Tout voir',to:'notifs'})+'<div class="stack">'+activeAnns().slice(0,2).map(annHtml).join('')+'</div></section>';
+ return {html:header+q+tiles+news+access+ann+demoLine()};
+};
+V.info=function(){
+ var tiles=[
+ {title:'Inscriptions',desc:'Démarches et dates importantes',i:'file',t:'blue',to:'page:inscriptions',cat:'Inscriptions'},
+ {title:'Règlement des études',desc:'Règles et organisation de la scolarité',i:'book',t:'purple',to:'page:reglement-etudes',cat:'Règlement'},
+ {title:'Examens et résultats',desc:'Calendrier, modalités et consultation',i:'bars',t:'orange',to:'page:examens',cat:'Examens'},
+ {title:'Certificats et attestations',desc:'Obtenez vos documents officiels',i:'cert',t:'green',to:'page:certificats',cat:'Scolarité'},
+ {title:'Santé et bien-être',desc:'Accompagnement et prévention',i:'heart',t:'pink',to:'page:sante',cat:'Santé'},
+ {title:'Aides financières',desc:'Bourses, aides et dispositifs',i:'help',t:'teal',to:'page:contacts',cat:'Aides'},
+ {title:'Accès et transports',desc:'Venir au campus et se déplacer',i:'bus',t:'blue',to:'page:acces',cat:'Transports'},
+ {title:'FAQ',desc:'Les réponses à vos questions',i:'help',t:'orange',to:'faq',cat:'Autres'}
+ ];
+ return {html:pageHeader('Informations','Retrouvez les informations essentielles concernant le Campus Rosa Parks.',false)+'<div class="searchfield"><label class="sr" for="info-search">Rechercher une information</label>'+ic('search',18)+'<input class="input" id="info-search" placeholder="Rechercher une information…" autocomplete="off" type="search"></div><div class="chips info-filter" id="info-chips"></div><div class="portal-grid" id="info-results">'+tiles.map(gridTile).join('')+'</div>'+demoLine(),mount:function(){
+ var current='Toutes',term='';var cats=['Toutes','Inscriptions','Règlement','Examens','Scolarité','Santé','Aides','Transports'];
+ function update(){var list=tiles.filter(function(x){return (current==='Toutes'||x.cat===current)&&(!term||norm(x.title+' '+x.desc).includes(norm(term)))});$('#info-chips').innerHTML=cats.map(function(x){return '<button class="chip" data-info-cat="'+x+'" aria-pressed="'+(current===x)+'">'+x+'</button>'}).join('');$('#info-results').innerHTML=list.length?list.map(gridTile).join(''):stateCard({icon:'search',title:'Aucun résultat',text:'Essayez une autre recherche ou catégorie.'});$$('[data-info-cat]').forEach(function(b){b.addEventListener('click',function(){current=b.dataset.infoCat;update()})})}
+ $('#info-search').addEventListener('input',function(e){term=e.target.value;update()});update()}}
+};
+V.schooling=function(){
+ var tabs=[['Présentation','presentation'],['Les formations','formations'],['Inscription','inscriptions'],['Examens','examens'],['Certificats','certificats']];
+ var tiles=[{title:'Inscriptions',desc:'Démarches et modalités',i:'file',t:'blue',to:'page:inscriptions'}, {title:'Calendrier académique',desc:'Les grandes étapes de l’année',i:'cal',t:'purple',to:'page:calendrier'}, {title:'Examens et résultats',desc:'Informations et procédures',i:'bars',t:'orange',to:'page:examens'}, {title:'Certificats et attestations',desc:'Documents officiels',i:'cert',t:'green',to:'page:certificats'}];
+ return {html:pageHeader('Ma scolarité','Toutes les informations concernant votre parcours de formation.')+'<div class="school-tabs">'+tabs.map(function(a,i){return '<button class="chip" data-school-tab="'+a[1]+'" aria-pressed="'+(!i)+'">'+a[0]+'</button>'}).join('')+'</div><div class="school-layout"><div class="panel-card school-hero"><span class="big-icon">'+ic('cap',49)+'</span><div><h3>Votre parcours au Campus Rosa Parks</h3><p>Retrouvez les informations pour préparer vos démarches et accompagner votre projet scolaire.</p><button class="btn btn-primary btn-sm" data-go="page:formations">Découvrir les formations '+ic('chev',17)+'</button></div></div><div class="panel-card stack"><h3 class="h3">Liens utiles</h3>'+[{title:'Guide de l’étudiant',desc:'Document de démonstration',i:'file',t:'orange',to:'docs'},{title:'Règlement des études',desc:'Consulter les règles',i:'book',t:'purple',to:'page:reglement-etudes'},{title:'Calendrier académique',desc:'Dates à confirmer',i:'cal',t:'blue',to:'page:calendrier'}].map(function(x){return '<button class="row" data-go="'+x.to+'" style="min-height:56px;box-shadow:none;padding:10px">'+ic(x.i,18)+'<span class="txt"><b>'+x.title+'</b></span>'+ic('chev',16)+'</button>'}).join('')+'</div></div><section class="stack">'+sectionTitle('Démarches et informations')+'<div class="link-grid">'+tiles.map(linkTile).join('')+'</div></section>'+demoLine(),mount:function(){$$('[data-school-tab]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.schoolTab;var path={presentation:'page:formations',formations:'page:formations',inscriptions:'page:inscriptions',examens:'page:examens',certificats:'page:certificats'};goStr(path[id])})})}}
+};
+V.campus=function(){
+ var tiles=[
+ {title:'Le campus',desc:'Plans, accès et espaces de vie',i:'building',t:'orange',to:'page:lieux'},
+ {title:'Restauration',desc:'Horaires, menus et tarifs',i:'food',t:'pink',to:'page:restauration'},
+ {title:'Bibliothèque',desc:'Ressources, horaires et services',i:'book',t:'blue',to:'docs'},
+ {title:'Espaces de travail',desc:'Salles, équipements et accès',i:'grid',t:'purple',to:'page:lieux'},
+ {title:'Vie associative',desc:'Associations et événements',i:'users',t:'green',to:'page:associations'},
+ {title:'Sports et culture',desc:'Activités, événements et infrastructures',i:'heart',t:'teal',to:'events'},
+ {title:'Santé et bien-être',desc:'Accompagnement et prévention',i:'heart',t:'pink',to:'page:sante'},
+ {title:'Accès et transports',desc:'Venir au campus facilement',i:'bus',t:'orange',to:'page:acces'}
+ ];
+ return {html:pageHeader('Vie de campus','Découvrez les services, les espaces et la vie quotidienne au Campus Rosa Parks.')+'<div class="campus-grid">'+tiles.map(function(x){return '<button class="campus-card" data-go="'+x.to+'"><span class="campus-art t-'+x.t+'">'+ic(x.i,42)+'</span><span class="detail"><b>'+esc(x.title)+'</b><p>'+esc(x.desc)+'</p></span></button>'}).join('')+'</div>'+demoLine()};
+};
+V.services=function(){return {html:pageHeader('Services','Les démarches et services utiles au quotidien.',false)+'<div class="portal-grid">'+SERVICES.map(function(s){return '<button class="feature-tile" data-go="service:'+s.id+'"><span class="tile-art t-'+s.tone+'">'+ic(s.icon,27)+'</span><div><h3>'+esc(s.title)+'</h3><p>'+esc(s.desc)+'</p>'+(s.on?'':'<span class="badge line">Non activé</span>')+'</div></button>'}).join('')+'</div>'+demoLine()}}
+var ORIGINAL_DOCS_VIEW=V.docs;
+V.docs=function(){var o=ORIGINAL_DOCS_VIEW();var content=o.html.replace('Documents</h1>','Ressources</h1>');content=content.replace('<div class="stack" id="dlist"></div>','<div class="stack doclist-new" id="dlist"></div>');o.html=content;return o};
+var ORIGINAL_NEWS_VIEW=V.news;
+V.news=function(){var o=ORIGINAL_NEWS_VIEW();o.html=o.html.replace('Les publications de l’établissement.','Restez informé·e de toute l’actualité du Campus Rosa Parks.').replace('<div class="stack" id="nlist"></div>','<div class="stack news-grid" id="nlist"></div>');return o};
+var ORIGINAL_PROFILE_VIEW=V.profile;
+V.profile=function(){var u=S.user;var original=ORIGINAL_PROFILE_VIEW();var unread=S.notifs.filter(function(n){return !n.read}).length;
+ var profileCard='<div class="panel-card profile-user"><span class="avatar" style="cursor:default">'+(u?esc(u.first[0]):'É')+'</span><div><h2>'+esc(u?u.name:'Étudiant·e')+'</h2><p>Campus Rosa Parks</p><p>'+(u?'Profil '+esc(ROLES[u.role])+' · démonstration':'Navigation en visiteur')+'</p></div>'+(u?'':'<button class="btn btn-primary btn-sm" data-go="login">Se connecter</button>')+'</div>';
+ var actions=[{title:'Mes informations',desc:'Données personnelles',i:'user',t:'blue',to:'settings'},{title:'Paramètres',desc:'Notifications et préférences',i:'sliders',t:'slate',to:'settings'},{title:'Aide et contact',desc:'Une question ? Besoin d’aide ?',i:'help',t:'purple',to:'contact'},{title:'À propos',desc:'Informations et confidentialité',i:'info',t:'green',to:'faq'}];
+ if(u&&u.role==='admin')actions.push({title:'Administration',desc:'Gestion de la démonstration',i:'shield',t:'orange',to:'admin'});
+ var right='<div class="profile-links">'+actions.map(linkTile).join('')+'</div>';
+ return {html:pageHeader('Mon profil','Consultez et gérez vos informations personnelles.',false)+'<div class="profile-layout">'+profileCard+right+'</div><div class="stack">'+linkTile({title:'Notifications',desc:unread+' notifications non lues',i:'bell',t:'blue',to:'notifs'})+(u?'<button class="btn btn-secondary" data-act="logout">'+ic('logout',17)+' Se déconnecter</button>':'')+'</div>'};
+};
+
+/* ---------- rendu ---------- */
+function render(){
+  var v=V[S.route]||V.home;
+  var out=v(S.params);
+  var shell=$('#shell');
+  shell.classList.toggle('bare',!!out.bare);
+  var view=$('#view');
+  view.innerHTML=out.html;
+  renderNav();
+  lgRefresh();
+  var h=$('h1',view);if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}
+  out.mount&&out.mount();
+}
+
+/* ---------- actions ---------- */
+var ACT={
+ back:back,
+ rolepick:function(t){$$('[data-act="rolepick"]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.id===t.dataset.id)})},
+ cfg:function(t){
+  var k=t.dataset.k,v=t.dataset.v,st=S.settings;
+  if(k==='glass')st.glass=v==='1';else if(k==='size')st.size=parseFloat(v);else if(k==='reduce')st.reduce=v==='1';else if(k==='theme')st.theme=v;else if(k==='font')st.font=v;
+  applySettings();saveSettings();
+  if(S.route==='setup')fillSetup();else render();
+ },
+ setupdone:function(){
+  try{localStorage.setItem('crp-setup','1')}catch(e){}
+  if(S.params&&S.params.id==='settings')back();else go('welcome',{},{replace:true});
+ },
+ discover:function(){S.user=null;go('home',{},{replace:true});S.hist=[]},
+ copy:function(t){copyText(t.dataset.id,'Copié dans le presse-papiers')},
+ copymsg:function(){copyText(S.draft||'','Message copié')},
+ share:function(t){var n=S.news.filter(function(x){return x.id===t.dataset.id})[0];copyText(n.title+' — Campus Rosa Parks (démonstration)','Titre copié, prêt à être partagé')},
+ dlsample:function(){toast('Fichier d’exemple : aucun document réel n’est rattaché')},
+ sort:function(){S.nf.sort=S.nf.sort==='desc'?'asc':'desc';listNews()},
+ ncat:function(t){S.nf.cat=t.dataset.id;listNews()},
+ nreset:function(){S.nf={q:'',cat:'all',sort:S.nf.sort};render()},
+ dcat:function(t){S.df.cat=t.dataset.id;listDocs()},
+ dreset:function(){S.df={q:'',cat:'all'};render()},
+ docopen:function(t){
+  var d=DOCS.filter(function(x){return x.id===t.dataset.id})[0];
+  if(d.vis==='connecté'&&!can('student'))return denyDoc();
+  openModal({title:d.title,body:'<dl class="kv"><div><dt>Catégorie</dt><dd>'+esc(d.cat)+'</dd></div><div><dt>Format</dt><dd>PDF</dd></div><div><dt>Mis à jour</dt><dd>'+fmtDate(d.date)+'</dd></div><div><dt>Accès</dt><dd>'+(d.vis==='public'?'Public':'Connecté')+'</dd></div></dl>'+noticeHtml('warn','alert','Aucun fichier n’est rattaché à ce document d’exemple.')});
+ },
+ docdl:function(t){var d=DOCS.filter(function(x){return x.id===t.dataset.id})[0];if(d.vis==='connecté'&&!can('student'))return denyDoc();toast('Document d’exemple : aucun fichier à télécharger')},
+ sugg:function(t){S.runSearch&&S.runSearch(t.dataset.id)},
+ opennotif:function(t){var n=S.notifs.filter(function(x){return x.id===t.dataset.id})[0];n.read=true;goStr(n.to)},
+ readall:function(){S.notifs.forEach(function(n){n.read=true});render();toast('Notifications marquées comme lues')},
+ loginas:function(t){var r=t.dataset.id;var nm={student:['Camille','Camille Exemple'],staff:['Alex','Alex Exemple'],admin:['Sam','Sam Exemple']}[r];S.user={role:r,first:nm[0],name:nm[1]};S.hist=[];go('home',{},{replace:true});toast('Connecté en mode démonstration : '+ROLES[r])},
+ logout:function(){openModal({title:'Se déconnecter ?',body:'<p>Vous repasserez en visiteur.</p>',actions:[{label:'Annuler',cls:'btn-secondary'},{label:'Se déconnecter',fn:function(){S.user=null;S.hist=[];go('profile',{},{replace:true});toast('Vous êtes déconnecté')}}]})},
+ sso:function(){openModal({title:'Connexion institutionnelle',body:'<p>La connexion avec le compte de l’établissement nécessite un service d’authentification que l’établissement doit fournir. Elle n’est pas disponible dans cette démonstration.</p>'})},
+ forgot:function(){openModal({title:'Compte ou mot de passe oublié',body:'<p>La récupération de compte dépend du système d’authentification de l’établissement. Rien n’est envoyé depuis cette démonstration.</p>'})},
+ theme:function(t){S.settings.theme=t.dataset.id;applySettings();saveSettings();render()},
+ size:function(t){S.settings.size=parseFloat(t.dataset.id);applySettings();saveSettings();render()},
+ push:function(){
+  if(!('Notification' in window)){toast('Les notifications push ne sont pas disponibles ici');return}
+  try{Notification.requestPermission().then(function(r){toast(r==='granted'?'Autorisation accordée. Aucun envoi réel dans la démonstration.':'Autorisation non accordée')},function(){toast('Les notifications push ne sont pas disponibles dans cet aperçu')})}catch(e){toast('Les notifications push ne sont pas disponibles dans cet aperçu')}
+ },
+ faqcat:function(t){S.faqCat=t.dataset.id;render()},
+ svcgo:function(t){var s=SERVICES.filter(function(x){return x.id===t.dataset.id})[0];go(s.go.split(':')[0],s.cat?{cat:s.cat}:(s.go.indexOf(':')>-1?{id:s.go.split(':')[1]}:{}))},
+ retry:function(){toast('Nouvelle tentative…');setTimeout(function(){back()},500)},
+ demomodal:function(){openModal({title:'Fenêtre modale',body:'<p>Une modale sert à confirmer une action ou à afficher un détail court.</p>',actions:[{label:'Annuler',cls:'btn-secondary'},{label:'Confirmer'}]})},
+ admtab:function(t){S.admTab=t.dataset.id;render()},
+ admnew:function(){openModal({title:'Nouvelle actualité',body:newsForm(),actions:[{label:'Annuler',cls:'btn-secondary'},{label:'Créer le brouillon',fn:function(d){return saveNews(d,null)}}]})},
+ admedit:function(t){var n=S.news.filter(function(x){return x.id===t.dataset.id})[0];openModal({title:'Modifier l’actualité',body:newsForm(n),actions:[{label:'Annuler',cls:'btn-secondary'},{label:'Enregistrer',fn:function(d){return saveNews(d,n)}}]})},
+ admpub:function(t){var n=S.news.filter(function(x){return x.id===t.dataset.id})[0];n.status='published';logAct('Actualité publiée : '+n.title);render();toast('Publiée')},
+ admunpub:function(t){var n=S.news.filter(function(x){return x.id===t.dataset.id})[0];n.status='draft';logAct('Actualité dépubliée : '+n.title);render();toast('Dépubliée (brouillon)')},
+ admarch:function(t){var n=S.news.filter(function(x){return x.id===t.dataset.id})[0];n.status='archived';logAct('Actualité archivée : '+n.title);render();toast('Archivée')},
+ admdel:function(t){var n=S.news.filter(function(x){return x.id===t.dataset.id})[0];openModal({title:'Supprimer cette actualité ?',body:'<p>« '+esc(n.title)+' » sera supprimée définitivement de cette session.</p>',actions:[{label:'Annuler',cls:'btn-secondary'},{label:'Supprimer',cls:'btn-danger',fn:function(){S.news=S.news.filter(function(x){return x.id!==n.id});logAct('Actualité supprimée : '+n.title);render();toast('Supprimée')}}]})},
+ admannnew:function(){
+  openModal({title:'Nouvelle annonce',body:'<div class="field"><label for="a-t">Titre</label><input class="input" id="a-t" maxlength="100"></div><div class="field"><label for="a-m">Message</label><textarea class="textarea" id="a-m" style="min-height:90px" maxlength="240"></textarea></div><div class="field"><label for="a-l">Priorité</label><select class="select" id="a-l"><option value="info">Info</option><option value="important">Important</option><option value="urgent">Urgent</option></select></div><div class="field"><label for="a-s">Début de visibilité</label><input class="input" type="date" id="a-s" value="'+TODAY_ISO+'"></div><div class="field"><label for="a-e">Fin de visibilité</label><input class="input" type="date" id="a-e"></div><label class="switch"><span>Mettre à la une</span><input type="checkbox" role="switch" id="a-f"><span class="track"></span></label><p class="err-msg" id="a-err" role="alert"></p>',
+  actions:[{label:'Annuler',cls:'btn-secondary'},{label:'Publier',fn:function(d){
+   var t=$('#a-t',d).value.trim(),m=$('#a-m',d).value.trim(),s=$('#a-s',d).value,e=$('#a-e',d).value;
+   if(t.length<3||m.length<3){$('#a-err',d).textContent='Renseignez un titre et un message.';return false}
+   if(!s||!e||e<s){$('#a-err',d).textContent='Choisissez une période valide : la fin doit suivre le début.';return false}
+   S.anns.unshift({id:'a'+Date.now(),title:t,msg:m,level:$('#a-l',d).value,featured:$('#a-f',d).checked,start:s,end:e,status:s>TODAY_ISO?'scheduled':'published'});
+   logAct('Annonce '+(s>TODAY_ISO?'programmée':'publiée')+' : '+t);render();toast(s>TODAY_ISO?'Annonce programmée':'Annonce publiée');}}]});
+ },
+ annopen:function(t){
+  var a=S.anns.filter(function(x){return x.id===t.dataset.id})[0];if(!a)return;
+  var lv={urgent:'Urgent',important:'Important',info:'Info'}[a.level];
+  openModal({title:a.title,body:'<p>'+esc(a.msg)+'</p><dl class="kv"><div><dt>Priorité</dt><dd>'+lv+'</dd></div><div><dt>Visible du</dt><dd>'+fmtDate(a.start,{day:'numeric',month:'short',year:'numeric'})+'</dd></div><div><dt>Jusqu’au</dt><dd>'+fmtDate(a.end,{day:'numeric',month:'short',year:'numeric'})+'</dd></div></dl>'+noticeHtml('info','info','Annonce d’exemple, pas une communication officielle.')});
+ },
+ admfeat:function(t){var n=S.news.filter(function(x){return x.id===t.dataset.id})[0];n.featured=!n.featured;logAct('Actualité '+(n.featured?'mise à la une':'retirée de la une')+' : '+n.title);render();toast(n.featured?'Mise à la une':'Retirée de la une')},
+ admannfeat:function(t){var a=S.anns.filter(function(x){return x.id===t.dataset.id})[0];a.featured=!a.featured;logAct('Annonce '+(a.featured?'mise à la une':'retirée de la une')+' : '+a.title);render();toast(a.featured?'Mise à la une':'Retirée de la une')},
+ admannarch:function(t){var a=S.anns.filter(function(x){return x.id===t.dataset.id})[0];a.status='archived';logAct('Annonce archivée : '+a.title);render()},
+ admannrest:function(t){var a=S.anns.filter(function(x){return x.id===t.dataset.id})[0];a.status=a.start>TODAY_ISO?'scheduled':'published';logAct('Annonce rétablie : '+a.title);render()},
+ admuser:function(t){var u=S.adminUsers.filter(function(x){return x.id===t.dataset.id})[0];u.on=!u.on;logAct('Compte '+(u.on?'réactivé':'désactivé')+' : '+u.name);render()}
+};
+function denyDoc(){openModal({title:'Connexion requise',body:'<p>Ce document est réservé aux utilisateurs connectés.</p>',actions:[{label:'Plus tard',cls:'btn-secondary'},{label:'Se connecter',fn:function(){go('login')}}]})}
+
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-tab],[data-go],[data-act]');if(!t)return;
+  if(t.dataset.tab){e.preventDefault();tab(t.dataset.tab);return}
+  if(t.dataset.go){e.preventDefault();goStr(t.dataset.go);return}
+  if(t.dataset.act&&ACT[t.dataset.act]){e.preventDefault();ACT[t.dataset.act](t,e)}
+});
+
+/* ---------- réglages persistants (par navigateur) ---------- */
+function applySettings(){
+  var r=document.documentElement,st=S.settings;
+  if(st.theme==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',st.theme);
+  r.style.setProperty('--fs',st.size);
+  if(st.reduce)r.setAttribute('data-motion','reduce');else r.removeAttribute('data-motion');
+  r.classList.toggle('glass',!!st.glass);
+  r.style.setProperty('--font',FONTMAP[st.font]||FONTMAP.inter);
+  setTimeout(lgRefresh,0);
+}
+function saveSettings(){try{localStorage.setItem('crp-settings',JSON.stringify(S.settings))}catch(e){}}
+try{var raw=localStorage.getItem('crp-settings');if(raw){var o=JSON.parse(raw);if(o&&typeof o==='object'){S.settings.theme=['auto','light','dark'].indexOf(o.theme)>-1?o.theme:'auto';S.settings.size=[1,1.125,1.25].indexOf(o.size)>-1?o.size:1;S.settings.reduce=!!o.reduce;if(typeof o.glass==='boolean')S.settings.glass=o.glass;if(FONTMAP[o.font])S.settings.font=o.font}}}catch(e){}
+
+/* ---------- glisser pour rafraîchir (accueil) ---------- */
+var pull={y:null,dy:0};
+function initPull(){}
+document.addEventListener('touchstart',function(e){pull.y=(S.route==='home'&&window.scrollY<=0&&!$('#scrim'))?e.touches[0].clientY:null;pull.dy=0},{passive:true});
+document.addEventListener('touchmove',function(e){if(pull.y!==null)pull.dy=e.touches[0].clientY-pull.y},{passive:true});
+document.addEventListener('touchend',function(){
+  if(pull.y!==null&&pull.dy>90){S.homeReady=false;render();toast('Contenus actualisés (données de démonstration)')}
+  pull.y=null;pull.dy=0;
+});
+
+/* ---------- connexion réseau ---------- */
+function net(){$('#net').hidden=navigator.onLine!==false}
+window.addEventListener('offline',function(){$('#net').hidden=false});
+window.addEventListener('online',function(){$('#net').hidden=true;toast('Connexion rétablie')});
+
+var setupDone=false;try{setupDone=localStorage.getItem('crp-setup')==='1'}catch(e){}
+S.route='welcome';
+applySettings();net();render();
+})();
+</script>
+
+<script>if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}</script></body></html>
